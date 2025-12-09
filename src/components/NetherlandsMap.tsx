@@ -2448,7 +2448,7 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
   useEffect(() => {
     if (!svgRef.current) return;
     
-    const allPaths = svgRef.current.querySelectorAll('path[id^="GM"]');
+    const allPaths = svgRef.current.querySelectorAll('path[id^="GM"], polygon[id^="GM"]');
     allPaths.forEach(path => {
       const gmCode = path.id;
       const name = gmCodeToName[gmCode];
