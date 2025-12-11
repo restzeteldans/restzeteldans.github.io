@@ -3,12 +3,19 @@ import { MapPin, Info, Map, List } from 'lucide-react';
 import { municipalities, provinces } from '../data/municipalities';
 import { SeatCalculator } from './SeatCalculator';
 import { NetherlandsMap } from './NetherlandsMap';
+import { calculateSeats } from '../utils/calculateSeats';
 
 export function MunicipalityTool() {
   const [selectedMunicipality, setSelectedMunicipality] = useState<string>('');
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   
-  const municipality = municipalities.find(m => m.name === selectedMunicipality);
+  const municipalityData = municipalities.find(m => m.name === selectedMunicipality);
+  
+  // Calculate the correct number of seats based on inhabitants
+  const municipality = municipalityData ? {
+    ...municipalityData,
+    seats: calculateSeats(municipalityData.inhabitants)
+  } : undefined;
 
   const handleMunicipalitySelect = (name: string) => {
     setSelectedMunicipality(name);
