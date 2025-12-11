@@ -278,7 +278,7 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 <path id="GM0606" class="st0" d="M178.4,435.9l1.5,4.8l1.1-0.4l-0.4,0.8l1.9,2l0.8-0.3h0.3l0.8-0.6l0.4,0.6l-1.4,0.5l-0.1,1.3
 	l1.1,2.5h0.2l-0.2,2.3l-1.1,0.7l1.1,1.9l-0.6,0.8l0.2,0.3l-3,1.2h-1.5l-2.8-0.8l-0.8-6.1l-0.6-0.8l-0.2-0.5l0.4-0.4l-0.2-1.9
 	l-1.9-4.6l2.9-1l-0.6-1.5L178.4,435.9L178.4,435.9z"/>
-<path id="GM0815" class="st0" d="M403.9,501.8h0.6v0.2l2.2,1.5l0.6-0.9l1.9,0.5l0.8,1l0.7-1.3l0.8,0.1l0.9-0.3l0.6,0.2l0.5-0.2
+<path id="GM1982" class="st0" d="M403.9,501.8h0.6v0.2l2.2,1.5l0.6-0.9l1.9,0.5l0.8,1l0.7-1.3l0.8,0.1l0.9-0.3l0.6,0.2l0.5-0.2
 	l2.9,1.3l0.3-0.6h1v2.8l-0.8,0.4l2.5,1l-0.6,0.5l1,0.8l1.9-0.2l1.1,0.4l3.6,5.4l-2.3,1.7l-0.9,1.3l0.2,0.2l-0.4,0.3l-0.2-0.1
 	l-1.3,0.7l-0.4-0.4l-0.4,0.2l-0.6,1.3h-1.3l-1.5,3.1l-7.3,4.8l-2.2-12.3l-6-9.3l1-2.9l0.7-1.1L403.9,501.8L403.9,501.8z"/>
 <path id="GM0313" class="st0" d="M348.4,357.2l-0.4-0.4h0.2L348.4,357.2z M339.5,352.2l1.1,0.9h0.4l1.1,0.4l1.7-0.2l0.2,0.4
@@ -562,7 +562,7 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 <path id="GM1926" class="st0" d="M181.4,411.3l0.5,0.6l0.6-0.6l8.2,1.4l1.1,3l2.3-0.6l1.1,2.5l-1.7,1.7l-1.7,0.9l0.4,1.3l-0.2,0.4
 	l0.4,0.9l-0.9,1.6l0.5,0.7v0.6l-1.5,0.4l0.4,0.9l-0.9,1.3l-3.9,3.6l0.6,0.9l-3.4,2.1l-0.8-1.3l-0.4-1.5l-0.7-0.2l-1.7-7.1l0.3-0.2
 	v-0.9l1.2-0.6l-1.3-3.4l-1.2-0.9l2.5-1.7l-1.2-1.5l-1.3,0.7l-1.1-1.5l2.6-2.8l0.2,0.4l0.6-0.8l0.4-0.4L181.4,411.3L181.4,411.3z"/>
-<path id="GM0856" class="st0" d="M388.6,509.3l8.6,8.9l1,0.4l8.9-2.6l1,3.5l-1.2,0.6v0.4h0.6l0.2,1.5l1.5,0.6l1.3,7.4l-1.7,0.2
+<path id="GM1991" class="st0" d="M388.6,509.3l8.6,8.9l1,0.4l8.9-2.6l1,3.5l-1.2,0.6v0.4h0.6l0.2,1.5l1.5,0.6l1.3,7.4l-1.7,0.2
 	l-9.1-1.5h-1v-0.4l-1.5,0.6v-0.4l-1.3-0.2l-2.3,0.8l-0.2,0.2l-2.6,0.1l-1.3,0.6l-0.8-0.9l-2.8-1.9l-0.8,1.1l-1.3-1.3l-0.2,0.4
 	l-1.3-1.9l0.4-0.8l-1.5-0.9l-2.1-2.1l0.6-0.6l-0.4-1.1h-0.2l-0.2-0.6l-0.4,0.2v-0.3l-0.3,0.3v-0.5l1.8-3.9V515l0.6-0.2v-0.5l1.7-0.8
 	l1.7-2.1l0.8-1.7l-0.6-1.3l4.4-0.6L388.6,509.3L388.6,509.3z"/>
@@ -671,7 +671,7 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 	l-0.2-0.9l0.9,0.9l-0.2-0.9l-1.5-1.9h-0.2l0.2-0.2l-0.6-1.1l0.2-1.7l-0.6-1.5l-0.6-1.5h-0.4h0.4l-0.9-2.3l-0.9,0.4l-3.7,3.5
 	l-2.1,1.3l0.2,2.1l-0.8-3.6l0.6,0.8l1.5-0.6l5-4.8l0.6-0.9l0.2-1.7l-0.6-0.9l2.8-1.7v-0.2l0.9-0.8l0.9-3.2l0.8-6.1l0.2-0.4l0.8,0.6
 	L354.4,111.5z"/>
-<path id="GM0786" class="st0" d="M403.5,488.4h1.9l1.7,1l2.3,3.4l2.3,1.3l3,0.5l2.6-0.3v1.1l-0.7,1.5l1.7,1.1l-0.4,1l0.9,0.5
+<path id="GM1982" class="st0" d="M403.5,488.4h1.9l1.7,1l2.3,3.4l2.3,1.3l3,0.5l2.6-0.3v1.1l-0.7,1.5l1.7,1.1l-0.4,1l0.9,0.5
 	l-0.4,1.2l-0.3,0.2l0.5,2.2l-1.9,0.4l-0.3,0.6l-2.9-1.3l-0.5,0.1l-0.6-0.1l-0.9,0.3l-0.8-0.2l-0.7,1.4l-0.8-1l-1.9-0.5l-0.6,0.9
 	l-3.3-2.5l1.5-0.5v-0.6l-2.1,0.2l0.2-1.3l-1.5-0.4l0.3-1.1l0.4-2.3h-0.5l0.3-1.3h-1.3l-0.6-1.1l0.8-0.6l0.9-2.1L403.5,488.4
 	L403.5,488.4z"/>
@@ -934,7 +934,7 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 	l1.2,0.6l0.5-0.2l0.6,0.3l1-0.9l1.5-0.2l0.9,0.6l-0.2,0.5l0.2,0.6l-0.7-0.2l0.9,2.1l-1.3,1.5l-1.3,0.6l-0.8,1.1l-1.3-0.2l-1.5,1
 	l0.2,0.5l-6-0.2l-1.1,0.6l-0.2-0.2v-0.2h-0.8l-3.6,0.8l-0.4-0.6l1.3-4.4l-4-6l0.9-0.2l0.4,0.4l0.5-0.2h0.4l5.4-1.8L365.7,552.5
 	L365.7,552.5z"/>
-<path id="GM0398" class="st0" d="M262,230.2l1,0.6l0.9,1.3l3.6,1.7l0.2,2.2l-1.5,0.6l-0.4,1.3l-2.1,1.2l0.6,1.7l-1,1.1l-1.3,4.2
+<path id="GM0416" class="st0" d="M262,230.2l1,0.6l0.9,1.3l3.6,1.7l0.2,2.2l-1.5,0.6l-0.4,1.3l-2.1,1.2l0.6,1.7l-1,1.1l-1.3,4.2
 	l-0.5,1.2l-0.2,0.9l0.4,1l2,2.4l-0.2,1.5l-0.7,0.2l-1.3-0.2l-0.6-1.1l-2.1-0.8l-0.9-1.1h-0.6l-0.6,0.9l-0.1,1.6l-0.8,1.3l-0.9-0.4
 	H252l-2.6-1.3h-1.1l1.1-2.5l1.3-2l0.2-1.2l-0.2-1.5l0.4-0.7l0.9-1l0.4-0.7l2.1,0.1l0.9-0.7v-4.3l-0.4-3l-0.9-2l2.5-1.2l-0.4-0.9
 	l-0.8-0.2l3.6-0.8l0.8-0.5l0.9-0.2L262,230.2L262,230.2z"/>
@@ -1354,7 +1354,7 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 	h-0.9V260h-0.4v0.2l-0.4-0.4h-12.6l-2.3-0.8l0.4-0.2l-6.1-9.2l0.2-0.2l0.9,0.4h4.4l0.2-1.3l-1.3-1.7l2.3-1.5l-2.5-3.2l0.4-1.3h-3
 	l-2.6,0.6l-0.4-0.4l-1.9,1.5h-0.9l0.4-24.2l11.1-17.9l0.9-0.4l5.6-0.8v-0.4l0.2,0.4h0.9l0.6-1.1l1.7,0.8l0.9,0.6l-0.8-2.8l4.1,1.1
 	L409.5,198.1L409.5,198.1z"/>
-<path id="GM1685" class="st0" d="M398.2,492l1.1,0.8h0.9l0.6,1.1h1.3l-0.4,1.3h0.6l-0.4,2.3l-0.3,1.1l1.5,0.4l-0.2,1.3l2.1-0.2v0.6
+<path id="GM1991" class="st0" d="M398.2,492l1.1,0.8h0.9l0.6,1.1h1.3l-0.4,1.3h0.6l-0.4,2.3l-0.3,1.1l1.5,0.4l-0.2,1.3l2.1-0.2v0.6
 	l-1.6,0.5l0.6,0.6l-0.6,0.2l-0.7,1.1l-1,2.9l6,9.3l1.5,7.5l-1.5-0.6l-0.2-1.5h-0.6v-0.4l1.2-0.6l-1-3.6l-8.9,2.7l-1-0.4l-8.6-9
 	l0.2-1.3l-4.4,0.6L384,507l0.8,0.2l-0.2-0.2l0.2-0.2l-1.9-4.4l-1.3-1.9l0.1-0.4h-0.3l-0.4-0.7l-0.2-2.5l3.4-0.8l0.2-0.9l3-1.5
 	l0.2,0.4l3.2-1h0.2l-0.4-0.7l1.9-0.6l0.6-0.4l2,2.5l1.2,0.9l0.5-3l0.6-1.3l0.2-0.2L398.2,492L398.2,492z"/>
@@ -1687,7 +1687,7 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 	l0.2,1.5h-0.6l-0.2,0.8l-0.2-0.4l-0.7,0.2l-5.4-0.8l1.7,3.9l-0.9,0.2l-1.4,0.9l-0.3,1.1h0.1l-0.5,1.6l-2.9-0.8l-1.3,3.4l-1.7-2.6
 	l-8.7,1.3l-0.4-1V568l1.3-0.3l-0.4-1.2l1.5-4l-0.3-1.7l0.9-2.3l2.3-0.4l-0.2-0.9h0.3l0.4-1.1h0.4l0.4-1.7l0.2-3.1l-1.4-0.1l-0.1,0.3
 	l-0.6-0.5l-0.6,0.2l-1.5-0.4l-0.2-0.6l0.8-4.6l0.4,0.2l0.2-1l0.5,0.2l0.2-0.7L202.6,544.8L202.6,544.8z"/>
-<path id="GM0756" class="st0" d="M442.5,504.6l1.9,0.8l0.9,1.1v2.5l1.5,5.9l-0.1,4.6l0.5,2.9l1.3,1.5l1.4,0.5l2.4,1.6l3.9,3.8l0.7,1
+<path id="GM1982" class="st0" d="M442.5,504.6l1.9,0.8l0.9,1.1v2.5l1.5,5.9l-0.1,4.6l0.5,2.9l1.3,1.5l1.4,0.5l2.4,1.6l3.9,3.8l0.7,1
 	l0.4,5.7l0.4,1l2.1,2.8l0.2,0.9l-0.4,3.1l0.5,1.5l1.4,1.7l-0.4,0.2l-0.2-0.4h-0.4l0.2,0.4l-0.6,0.1l-0.5-0.3l-0.6,0.2l-0.2,0.1
 	l0.2,0.4l-0.4,1l-2.4-3.1l-2.5-1.8l-4.6,2.4l-6.9,2.3l-5,0.4l-2.6-2.3l-3.4-0.6v-3l1.3-0.7l-0.4-0.6l2.9-1.5l-0.4-0.4l0.5-0.4v-0.2
 	l1-0.5l0.6,0.5l4.8-2.8l-0.2-0.8l0.7-0.3l-0.2-0.4l2.7-1.5l-1.5-1l-1-1.3l-1.7-4.4l-5-3.2l-0.5,0.4l-0.6-0.8l-1.1-0.4v0.4l-0.8,0.2
@@ -1731,7 +1731,7 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 	v-1.4l0.9-1.3l0.2-1l0.4-0.2l-0.2-0.2l0.4-1.3l-0.6-0.4l-0.2-0.9l-0.2-0.4l0.4-0.7l-0.8-0.8h-0.1l-0.4-1.5H532l-0.5-0.6l0.2,0.4
 	l-0.4-0.2l-0.2,0.2l-0.2-0.9l-0.2-0.4l-0.2,0.2l-0.4-0.2v-0.6l-0.5-0.2v-0.3l-0.2-0.2l3.7-1.3l1.5-3.6l0.2-1l-0.4-1.1h0.6l3.2-1.1
 	l6.9,0.9l5.7-1.5L551,375.6L551,375.6z"/>
-<path id="GM1702" class="st0" d="M426.7,515.3l2.4,1.9l-0.4,0.4l0.4,0.5l-0.7,1.2l3.3,2.4l-0.5,0.4v2.1l0.9,0.2l0.2-0.4l0.8-0.2
+<path id="GM1982" class="st0" d="M426.7,515.3l2.4,1.9l-0.4,0.4l0.4,0.5l-0.7,1.2l3.3,2.4l-0.5,0.4v2.1l0.9,0.2l0.2-0.4l0.8-0.2
 	v-0.4l1.1,0.4l0.6,0.7l0.5-0.3l5,3.2l1.7,4.4l1,1.3l1.5,1l-2.7,1.5l0.2,0.4l-0.7,0.3l0.2,0.8l-4.8,2.8l-0.6-0.5l-1,0.5v0.2l-0.5,0.4
 	l0.4,0.4l-2.9,1.5l0.4,0.5l-1.3,0.8v3l-8.8-1.7l-3.4-2.6l-2.4-5.4l-4.7,1.1l-2-10.4l7.2-4.9l1.5-3h1.4l0.5-1.3l0.4-0.2l0.4,0.4
 	l1.3-0.8l0.2,0.2l0.4-0.3l-0.2-0.2l0.9-1.4l2.3-1.7L426.7,515.3L426.7,515.3z"/>
@@ -2203,7 +2203,7 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 	l-3-1.5h-0.2l-0.8,0.8v-2.1l-2.2,0.9v0.4l-0.4,0.4l-1.5,0.2l0.3,4l-0.1,0.8l-6-1.5l-1.1,0.3l-9.2-0.1l2.1-11.7l7.5-2.5v-0.8h0.7
 	l2.3-1.3l0.2,0.2l-0.6,0.4l0.2,0.4l0.9,0.5v0.4l1.5,0.2l-0.1,0.6l0.9,0.3l0.9,0.2l0.4-0.7l0.8,0.2l0.2,0.2l3.2,0.1l0.2,0.4l0.3-0.2
 	l2.3,0.2l0.8-3.2l1.1,0.4l0.2-0.9L243.5,264.7L243.5,264.7z"/>
-<path id="GM1684" class="st0" d="M432.6,497.4l0.6,3.7l1.1,1.5l2.6,1.1l3.7,0.4l0.8,0.2l0.2,0.3L441,505l-0.6,1.1l-1.3,0.6l-0.7,1.3
+<path id="GM1982" class="st0" d="M432.6,497.4l0.6,3.7l1.1,1.5l2.6,1.1l3.7,0.4l0.8,0.2l0.2,0.3L441,505l-0.6,1.1l-1.3,0.6l-0.7,1.3
 	l-1.2,0.8l-2.4,3.2l0.9,0.9l-0.7,1l-2.3,1.5l-0.6-0.4l-0.7,0.2l-2.5,2.1l-2.4-1.9l-4.1-6.3l-1.1-0.4l-1.9,0.2l-1-0.8l0.6-0.5l-2.4-1
 	l0.7-0.4v-2.8l1-0.4l-0.6-2.2l0.4-0.2l0.3-1.2l-0.9-0.5l0.4-1l-1.7-1.1l0.7-1.5v-1.1l2.9-0.8l7.6-0.9l2.5,0.7l1.7,1.3l0.5,1
 	L432.6,497.4L432.6,497.4z"/>
@@ -2364,6 +2364,9 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 	309.7,519.2 309.5,520.7 309.1,521.6 310,525.7 314.2,525.5 315.2,525.7 316.1,528.9 318.3,531.7 318.6,532.6 320.5,530.7 
 	320.9,531.6 320.9,532.2 322.6,532 323.4,531.6 324.5,531.6 324.8,530.3 326.4,529.9 328.8,533 330,531.3 330.5,530.8 330.5,530.4 
 	333,530.8 333.3,529.8 333.7,529.6 334.7,529.8 335.4,527.4 336.6,527.4 337.5,526.4 "/>
+<path id="GM0513" class="st0" d="M236.1,416.9l-0.2,2.5l2.6,0.3l0.4,0.8h1.1l0.4,1.5l0.6,0.2l0.2,0.7l1.1,3.4l-2.1-0.3l-1.3-1.2v0.2
+	l-1.3-0.4l-1.1,0.6l0.7,1.1l-1.5,0.8l-0.7-0.6l-0.2,0.4l-1-0.8l-1.3,1.4l-1.9,0.2l-0.7-0.4l-0.8,0.4l-1.5-1.7l-1.3-0.2l-0.6-0.6
+	l1.9-1.7l-0.8-0.6l1.5-1.1l1.2-0.6l-0.6-0.5l-1.5-0.4l-0.4-0.6l3.2-1.5l3.4-2.6l1.7,0.6l0.4,0.7L236.1,416.9L236.1,416.9z"/>
     `;
     
     console.log('Loading SVG paths from inline data');
@@ -2399,56 +2402,51 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
     m.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Handle clicks on SVG paths
-  useEffect(() => {
-    const handlePathClick = (e: Event) => {
-      const target = e.target as SVGPathElement;
-      if (target.tagName === 'path' && target.id.startsWith('GM')) {
-        const gmCode = target.id;
-        const name = gmCodeToName[gmCode];
-        if (name) {
-          onMunicipalityClick(name);
-        }
-      }
-    };
+	// Handle clicks + hover for GM elements (paths, polygons, or shapes inside groups)
+	useEffect(() => {
+	const handleClick = (e: Event) => {
+		const target = e.target as HTMLElement;
+		const group = target.closest('g[id^="GM"], path[id^="GM"], polygon[id^="GM"]') as HTMLElement | null;
+		if (!group || !group.id.startsWith("GM")) return;
 
-    const handlePathHover = (e: Event) => {
-      const target = e.target as SVGPathElement;
-      if (target.tagName === 'path' && target.id.startsWith('GM')) {
-        const gmCode = target.id;
-        const name = gmCodeToName[gmCode];
-        if (name) {
-          setHoveredMunicipality(name);
-        }
-      }
-    };
+		const gmCode = group.id;
+		const name = gmCodeToName[gmCode];
+		if (name) onMunicipalityClick(name);
+	};
 
-    const handlePathLeave = (e: Event) => {
-      const target = e.target as SVGPathElement;
-      if (target.tagName === 'path') {
-        setHoveredMunicipality(null);
-      }
-    };
+	const handleHover = (e: Event) => {
+		const target = e.target as HTMLElement;
+		const group = target.closest('g[id^="GM"], path[id^="GM"], polygon[id^="GM"]') as HTMLElement | null;
+		if (!group || !group.id.startsWith("GM")) return;
 
-    const container = mapContainerRef.current;
-    if (container) {
-      container.addEventListener('click', handlePathClick);
-      container.addEventListener('mouseover', handlePathHover);
-      container.addEventListener('mouseout', handlePathLeave);
+		const gmCode = group.id;
+		const name = gmCodeToName[gmCode];
+		setHoveredMunicipality(name ?? null);
+	};
 
-      return () => {
-        container.removeEventListener('click', handlePathClick);
-        container.removeEventListener('mouseover', handlePathHover);
-        container.removeEventListener('mouseout', handlePathLeave);
-      };
-    }
-  }, [onMunicipalityClick]);
+	const handleLeave = () => {
+		setHoveredMunicipality(null);
+	};
+
+	const container = mapContainerRef.current;
+	if (container) {
+		container.addEventListener("click", handleClick);
+		container.addEventListener("mouseover", handleHover);
+		container.addEventListener("mouseout", handleLeave);
+
+		return () => {
+		container.removeEventListener("click", handleClick);
+		container.removeEventListener("mouseover", handleHover);
+		container.removeEventListener("mouseout", handleLeave);
+		};
+	}
+	}, [onMunicipalityClick]);
 
   // Update selected state of paths
   useEffect(() => {
     if (!svgRef.current) return;
     
-    const allPaths = svgRef.current.querySelectorAll('path[id^="GM"], polygon[id^="GM"]');
+    const allPaths = svgRef.current.querySelectorAll('[id^="GM"]');
     allPaths.forEach(path => {
       const gmCode = path.id;
       const name = gmCodeToName[gmCode];
@@ -2550,6 +2548,51 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
               stroke-width: 1.5;
             }
           `}</style>
+		  <style>{`
+            polygon[id^="GM"] {
+              fill: #CCCCCC;
+              stroke: #6E6E6E;
+              stroke-width: 0.48;
+              stroke-miterlimit: 10;
+              cursor: pointer;
+              transition: fill 0.2s, stroke 0.2s, stroke-width 0.2s;
+            }
+            polygon[id^="GM"]:hover {
+              fill: #fb923c !important;
+              stroke: #f97316;
+              stroke-width: 1.2;
+            }
+            polygon[id^="GM"].selected {
+              fill: #f97316 !important;
+              stroke: #ea580c;
+              stroke-width: 1.5;
+            }
+          `}</style>
+		  <style>{`
+			g[id^="GM"] path,
+			g[id^="GM"] polygon {
+				fill: #CCCCCC;
+				stroke: #6E6E6E;
+				stroke-width: 0.48;
+				stroke-miterlimit: 10;
+				cursor: pointer;
+				transition: fill 0.2s, stroke 0.2s, stroke-width 0.2s;
+			}
+
+			g[id^="GM"] path:hover,
+			g[id^="GM"] polygon:hover {
+				fill: #fb923c !important;
+				stroke: #f97316;
+				stroke-width: 1.2;
+			}
+
+			g[id^="GM"].selected path,
+			g[id^="GM"].selected polygon {
+				fill: #f97316 !important;
+				stroke: #ea580c;
+				stroke-width: 1.5;
+			}
+			`}</style>
         </defs>
 
         <g transform={`translate(${pan.x}, ${pan.y}) scale(${zoom})`}>
