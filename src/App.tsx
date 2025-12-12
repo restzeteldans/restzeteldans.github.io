@@ -48,7 +48,7 @@ export default function App() {
             </button>
             <button
               onClick={() => setActiveTab('national')}
-              className={`py-4 px-2 border-b-2 transition-colors ${
+              className={`py-4 px-2 border-b-2 transition-colors bg-transparent text-inherit focus:outline-none ${
                 activeTab === 'national'
                   ? 'border-orange-600 text-orange-600'
                   : 'border-transparent text-gray-600 hover:text-gray-900'
