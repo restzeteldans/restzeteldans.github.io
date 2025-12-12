@@ -32,22 +32,33 @@ const partyColors: { [key: string]: string } = {
   SP: "#F8423F",
   CU: "#00B0F0",
   SGP: "#FFA500",
-  Volt: "#502379",
+  "Volt Nederland": "#502379",
+  BBB: "#87CEEB",
+  "50+": "#800080",
+  JA21: "#1E3A8A",
 };
 
 // 2024 European Election Results (31 seats)
 const europeanElectionResults = [
-  { name: "GL-PvdA", percentage: 21.2, seats: 8, votes: 1176000 },
-  { name: "PVV", percentage: 17.7, seats: 6, votes: 982000 },
-  { name: "VVD", percentage: 12.4, seats: 4, votes: 688000 },
-  { name: "NSC", percentage: 9.7, seats: 3, votes: 538000 },
-  { name: "D66", percentage: 8.6, seats: 3, votes: 477000 },
-  { name: "CDA", percentage: 8.4, seats: 3, votes: 466000 },
-  { name: "PvdD", percentage: 5.2, seats: 1, votes: 288000 },
-  { name: "FvD", percentage: 4.8, seats: 2, votes: 266000 },
-  { name: "SP", percentage: 4.2, seats: 1, votes: 233000 },
-  { name: "CU", percentage: 4.7, seats: 0, votes: 261000 },
-  { name: "SGP", percentage: 3.1, seats: 0, votes: 172000 },
+  { name: "GL-PvdA", percentage: 21.2, seats: 8, votes: 1314428 },
+  { name: "PVV", percentage: 17.7, seats: 6, votes: 1057662 },
+  { name: "VVD", percentage: 12.4, seats: 4, votes: 707141 },
+  { name: "NSC", percentage: 9.7, seats: 3, votes: 233564 },
+  { name: "D66", percentage: 8.6, seats: 3, votes: 523650 },
+  { name: "CDA", percentage: 8.4, seats: 3, votes: 589205 },
+  { name: "PvdD", percentage: 5.2, seats: 1, votes: 281600 },
+  { name: "FvD", percentage: 4.8, seats: 2, votes: 155187 },
+  { name: "SP", percentage: 4.2, seats: 1, votes: 136978 },
+  { name: "CU", percentage: 4.7, seats: 0, votes: 180060 },
+  { name: "SGP", percentage: 3.1, seats: 0, votes: 228036 },
+  { name: "BBB", percentage: 3.1, seats: 0, votes: 336953 },
+  { name: "Volt Nederland", percentage: 3.1, seats: 0, votes: 319483 },
+  { name: "50+", percentage: 3.1, seats: 0, votes: 58498 },
+  { name: "JA21", percentage: 3.1, seats: 0, votes: 40570 },
+  { name: "Piratenpartij - De Groenen", percentage: 3.1, seats: 0, votes: 23764 },
+  { name: "Belang Van Nederland (BVNL)", percentage: 3.1, seats: 0, votes: 23032 },
+  { name: "Meer Directe Democratie", percentage: 3.1, seats: 0, votes: 11295 },
+  { name: "NL PLAN EU", percentage: 3.1, seats: 0, votes: 8360 },
 ];
 
 export function EuropeanElections() {
@@ -483,14 +494,14 @@ export function EuropeanElections() {
                     {(
                       (allocation.votes / totalVotes) *
                       100
-                    ).toFixed(1)}
+                    ).toLocaleString("nl-NL", {minimumFractionDigits: 1, maximumFractionDigits: 1,})}
                     %
                   </td>
                   <td className="text-right py-3 px-2 text-gray-700">
                     {allocation.fullSeats}
                   </td>
                   <td className="text-right py-3 px-2 text-gray-700">
-                    {allocation.remainder.toFixed(3)}
+                    {allocation.remainder.toLocaleString("nl-NL", {minimumFractionDigits: 3, maximumFractionDigits: 3,})}
                   </td>
                   <td className="text-right py-3 px-2">
                     {allocation.restSeatSurplus ? (
@@ -570,7 +581,7 @@ export function EuropeanElections() {
                     <span className="text-orange-900">
                       {allocation.party}
                     </span>{" "}
-                    - restant: {allocation.remainder.toFixed(3)}
+                    - restant: {allocation.remainder.toLocaleString("nl-NL", {minimumFractionDigits: 3, maximumFractionDigits: 3,})}
                   </p>
                 ))}
             </div>

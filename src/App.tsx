@@ -3,10 +3,11 @@ import { NationalElections } from './components/NationalElections';
 import { EuropeanElections } from './components/EuropeanElections';
 import { MethodologyComparison } from './components/MethodologyComparison';
 import { MunicipalityTool } from './components/MunicipalityTool';
+import { AboutSeatDistribution } from './components/AboutSeatDistribution';
 import { Vote } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'national' | 'european' | 'methodology' | 'municipality'>('municipality');
+  const [activeTab, setActiveTab] = useState<'about' | 'municipality' | 'national' | 'european' | 'methodology'>('about');
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50">
@@ -25,6 +26,16 @@ export default function App() {
       <nav className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex gap-8">
+            <button
+              onClick={() => setActiveTab('about')}
+              className={`py-4 px-2 border-b-2 transition-colors ${
+                activeTab === 'about'
+                  ? 'border-orange-600 text-orange-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              Zetelverdeling Nederland
+            </button>
             <button
               onClick={() => setActiveTab('municipality')}
               className={`py-4 px-2 border-b-2 transition-colors ${
@@ -63,13 +74,14 @@ export default function App() {
                   : 'border-transparent text-gray-600 hover:text-gray-900'
               }`}
             >
-              Vergelijking Methodes
+              (On)Eerlijkheid
             </button>
           </div>
         </div>
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
+        {activeTab === 'about' && <AboutSeatDistribution />}
         {activeTab === 'municipality' && <MunicipalityTool />}
         {activeTab === 'national' && <NationalElections />}
         {activeTab === 'european' && <EuropeanElections />}

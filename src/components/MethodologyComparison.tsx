@@ -1,191 +1,258 @@
-import { CheckCircle, XCircle, Scale } from 'lucide-react';
+import { Scale, AlertTriangle, BookOpen, Users, ExternalLink } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 export function MethodologyComparison() {
   return (
     <div className="space-y-8">
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <div className="flex items-center gap-3 mb-4">
-          <Scale className="w-8 h-8 text-orange-600" />
-          <h2 className="text-orange-600">
-            Vergelijking van de methode van de grootste overschotten en de grootste gemiddelden
-          </h2>
-        </div>
-        
-        <div className="prose max-w-none">
-          <p className="text-gray-700">
-            Bij verkiezingen waarin zetels evenredig moeten worden verdeeld, bestaan er verschillende rekenmethoden om stemmen om te zetten naar zetels. Twee veelgebruikte systemen zijn de methode van de grootste overschotten en de methode van de grootste gemiddelden. Beide streven naar proportionaliteit, maar doen dat met een andere benadering en met andere effecten voor partijen. Hieronder vindt u een overzicht van hoe beide methoden werken, en welke voor- en nadelen eraan verbonden zijn.
-          </p>
+      {/* Introduction */}
+      <div className="bg-white rounded-lg shadow-sm p-8">
+        <div className="flex items-start gap-4">
+          <div className="p-3 bg-orange-100 rounded-lg">
+            <Scale className="w-8 h-8 text-orange-600" />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-orange-600 mb-4">Eerlijkheid in zetelverdeling</h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                Wanneer stemmen worden omgezet in zetels, gebruiken landen verschillende methoden om dit zo eerlijk mogelijk te doen. In Nederland werken we volgens een systeem van evenredige vertegenwoordiging, waarbij het totaal aantal stemmen vertaald wordt naar zetels in de Tweede Kamer of gemeenteraad. Hierbij worden eerst de zogenoemde volle zetels toegekend op basis van een kiesdeler; het overschot aan stemmen dat niet genoeg is voor een volle zetel levert restzetels op.
+              </p>
+              <p>
+                Maar wat eerlijk is, hangt af van de gekozen methode. In Nederland bestaan twee manieren om restzetels te verdelen: de methode van de grootste overschotten (voor gemeenten met minder dan 19 zetels) en de methode van de grootste gemiddelden voor grotere boven de 19 zetels, nationale en Europese verkiezingen.
+              </p>
+              <p>
+                Er is geen perfect stemsysteem: elk systeem maakt compromissen. De keuze voor een bepaalde methode is dus politiek, ethisch en moreel van aard: wat telt zwaarder, eenvoud en transparantie, of proportionele rechtvaardigheid en stabiliteit?
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Method 1: Largest Surplus */}
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <h3 className="text-gray-900 mb-4">Methode van de grootste overschotten</h3>
+      {/* Comparison Table */}
+      <div className="bg-white rounded-lg shadow-sm p-8">
+        <h2 className="text-gray-900 mb-6">Dit zijn de twee methodes die we gebruiken in Nederland met hun voor en nadelen:</h2>
         
-        <p className="text-gray-700 mb-6">
-          De methode van de grootste overschotten werkt op basis van een kiesdeler. Deze kiesdeler wordt berekend door het totaal aantal uitgebrachte stemmen te delen door het aantal beschikbare zetels. Elke partij krijgt vervolgens eerst de zetels die overeenkomen met het gehele aantal malen dat zij de kiesdeler behalen. De resterende zetels worden verdeeld op basis van de grootste overschotten: partijen met de hoogste reststemmen ontvangen als eerste een extra zetel.
-        </p>
-
         <div className="grid md:grid-cols-2 gap-6">
-          {/* Advantages */}
-          <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <CheckCircle className="w-5 h-5 text-green-600" />
-              <h4 className="text-green-900">Voordelen</h4>
+          {/* Left Column: Methode van grootste gemiddelden */}
+          <div className="space-y-4">
+            <div className="bg-blue-100 p-4 rounded-lg">
+              <h3 className="text-blue-900">Methode van grootste gemiddelden</h3>
             </div>
-            <ul className="space-y-3">
-              <li className="flex gap-2 text-green-800 text-sm">
-                <span className="text-green-600 mt-1">•</span>
-                <span>De methode is transparant en eenvoudig uit te leggen.</span>
-              </li>
-              <li className="flex gap-2 text-green-800 text-sm">
-                <span className="text-green-600 mt-1">•</span>
-                <span>De zetelverdeling sluit vaak zeer nauw aan bij het strikt proportionele aandeel van de stemmen.</span>
-              </li>
-              <li className="flex gap-2 text-green-800 text-sm">
-                <span className="text-green-600 mt-1">•</span>
-                <span>Vooral kleinere en middelgrote partijen profiteren van deze aanpak.</span>
-              </li>
-            </ul>
+            
+            <div className="space-y-3">
+              <div className="p-4 bg-green-50 border-l-4 border-green-500 rounded">
+                <p className="text-gray-700">
+                  Deze methode is wiskundig stabiel en voorkomt de paradoxen die bij de grootste overschotten kunnen optreden.
+                </p>
+              </div>
+
+              <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                <p className="text-gray-700">
+                  Afhankelijk van de variant kunnen grotere partijen voordeel krijgen, waardoor de verdeling iets minder proportioneel wordt.
+                </p>
+              </div>
+
+              <div className="p-4 bg-green-50 border-l-4 border-green-500 rounded">
+                <p className="text-gray-700">
+                  Het systeem kan bijdragen aan stabielere meerderheden, met name de D'Hondt-variant, die grotere partijen iets bevoordeelt.
+                </p>
+              </div>
+
+              <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                <p className="text-gray-700">
+                  De berekening is minder intuïtief en moeilijker uit te leggen aan het grote publiek.
+                </p>
+              </div>
+
+              <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                <p className="text-gray-700">
+                  De methode wijkt soms af van de exacte verhouding die uit een zuivere quotabenadering zou volgen.
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Disadvantages */}
-          <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <XCircle className="w-5 h-5 text-red-600" />
-              <h4 className="text-red-900">Nadelen</h4>
+          {/* Right Column: Methode van grootste overschotten */}
+          <div className="space-y-4">
+            <div className="bg-purple-100 p-4 rounded-lg">
+              <h3 className="text-purple-900">Methode van grootste overschotten</h3>
             </div>
-            <ul className="space-y-3">
-              <li className="flex gap-2 text-red-800 text-sm">
-                <span className="text-red-600 mt-1">•</span>
-                <span>De methode kan leiden tot wiskundige paradoxen, zoals de Alabama-paradox, waarbij een partij een zetel kan verliezen wanneer het totale aantal zetels stijgt.</span>
-              </li>
-              <li className="flex gap-2 text-red-800 text-sm">
-                <span className="text-red-600 mt-1">•</span>
-                <span>Een combinatie van partijen (bijvoorbeeld een lijstverbinding) kan in sommige situaties minder zetels krijgen dan wanneer ze afzonderlijk meededen.</span>
-              </li>
-              <li className="flex gap-2 text-red-800 text-sm">
-                <span className="text-red-600 mt-1">•</span>
-                <span>Kleinere partijen kunnen oververtegenwoordigd raken wanneer hun reststemmen relatief hoog zijn.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+            
+            <div className="space-y-3">
+              <div className="p-4 bg-green-50 border-l-4 border-green-500 rounded">
+                <p className="text-gray-700">
+                  De methode is transparant en eenvoudig uit te leggen.
+                </p>
+              </div>
 
-      {/* Method 2: Largest Averages */}
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <h3 className="text-gray-900 mb-4">Methode van de grootste gemiddelden</h3>
-        
-        <p className="text-gray-700 mb-6">
-          De methode van de grootste gemiddelden werkt niet met restzetels, maar met gemiddelden. Voor elke partij wordt een reeks berekend door haar stemmen te delen door vaste delers (bijvoorbeeld 1, 2, 3, … bij D'Hondt). De zetels worden vervolgens één voor één toegekend aan de hoogste berekende gemiddelden.
-        </p>
+              <div className="p-4 bg-green-50 border-l-4 border-green-500 rounded">
+                <p className="text-gray-700">
+                  De zetelverdeling sluit vaak zeer nauw aan bij het strikt proportionele aandeel van de stemmen.
+                </p>
+              </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Advantages */}
-          <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <CheckCircle className="w-5 h-5 text-green-600" />
-              <h4 className="text-green-900">Voordelen</h4>
+              <div className="p-4 bg-green-50 border-l-4 border-green-500 rounded">
+                <p className="text-gray-700">
+                  Vooral kleinere en middelgrote partijen profiteren van deze aanpak.
+                </p>
+              </div>
+
+              <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                <p className="text-gray-700">
+                  De methode kan leiden tot wiskundige paradoxen, zoals de Alabama-paradox, waarbij een partij een zetel kan verliezen wanneer het totale aantal zetels stijgt.
+                </p>
+              </div>
+
+              <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                <p className="text-gray-700">
+                  Een combinatie van partijen (bijvoorbeeld een lijstverbinding) kan in sommige situaties minder zetels krijgen dan wanneer ze afzonderlijk meededen.
+                </p>
+              </div>
+
+              <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                <p className="text-gray-700">
+                  Kleinere partijen kunnen oververtegenwoordigd raken wanneer hun reststemmen relatief hoog zijn.
+                </p>
+              </div>
             </div>
-            <ul className="space-y-3">
-              <li className="flex gap-2 text-green-800 text-sm">
-                <span className="text-green-600 mt-1">•</span>
-                <span>Deze methode is wiskundig stabiel en voorkomt de paradoxen die bij de grootste overschotten kunnen optreden.</span>
-              </li>
-              <li className="flex gap-2 text-green-800 text-sm">
-                <span className="text-green-600 mt-1">•</span>
-                <span>Het systeem kan bijdragen aan stabielere meerderheden, met name de D'Hondt-variant, die grotere partijen iets bevoordeelt.</span>
-              </li>
-              <li className="flex gap-2 text-green-800 text-sm">
-                <span className="text-green-600 mt-1">•</span>
-                <span>Verschillende delersystemen bieden flexibiliteit: sommige varianten zijn neutraler of juist gunstiger voor kleinere partijen.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Disadvantages */}
-          <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <XCircle className="w-5 h-5 text-red-600" />
-              <h4 className="text-red-900">Nadelen</h4>
-            </div>
-            <ul className="space-y-3">
-              <li className="flex gap-2 text-red-800 text-sm">
-                <span className="text-red-600 mt-1">•</span>
-                <span>De berekening is minder intuïtief en moeilijker uit te leggen aan het grote publiek.</span>
-              </li>
-              <li className="flex gap-2 text-red-800 text-sm">
-                <span className="text-red-600 mt-1">•</span>
-                <span>Afhankelijk van de variant kunnen grotere partijen voordeel krijgen, waardoor de verdeling iets minder proportioneel wordt.</span>
-              </li>
-              <li className="flex gap-2 text-red-800 text-sm">
-                <span className="text-red-600 mt-1">•</span>
-                <span>De methode wijkt soms af van de exacte verhouding die uit een zuivere quotabenadering zou volgen.</span>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
 
-      {/* Summary */}
-      <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-8">
-        <h3 className="text-blue-900 mb-4">Samenvattend</h3>
-        
-        <div className="space-y-4 text-blue-800">
+      {/* Concrete Paradoxes */}
+      <div className="bg-white rounded-lg shadow-sm p-8">
+        <div className="flex items-start gap-4 mb-6">
+          <div className="p-3 bg-red-100 rounded-lg">
+            <AlertTriangle className="w-8 h-8 text-red-600" />
+          </div>
+          <div>
+            <h2 className="text-red-600">Concrete paradoxen: wat kan er misgaan?</h2>
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>De Alabamaparadox</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  Stel je voor dat een gemeenteraad eerst 10 zetels heeft en daarna hypothetisch 11. In sommige quotamethoden kan een partij dan minder zetels krijgen ondanks gelijkblijvende stemverhoudingen een onlogisch resultaat dat paradoxaal lijkt. Dit werd ontdekt in de context van de Amerikaanse congresverdeling in 1880, toen berekeningen van de volkstelling aantoonden dat als het totale aantal zetels in het Huis van Afgevaardigden hypothetisch zou worden verhoogd van 299 naar 300, dit het aantal zetels van Alabama zou verminderen van 8 naar 7.
+                </p>
+                
+                <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                  <h4 className="text-amber-900 mb-2">Voorbeeld binnen Nederland</h4>
+                  <p className="text-amber-800 italic">
+                    Nog zoeken
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      {/* Arrow's Theorem */}
+      <div className="bg-white rounded-lg shadow-sm p-8">
+        <div className="flex items-start gap-4 mb-6">
+          <div className="p-3 bg-blue-100 rounded-lg">
+            <BookOpen className="w-8 h-8 text-blue-600" />
+          </div>
+          <div>
+            <h2 className="text-blue-600">Waarom geen perfect systeem bestaat: Arrow's theorem & paradoxen</h2>
+          </div>
+        </div>
+
+        <div className="space-y-4 text-gray-700">
           <p>
-            Hoewel beide methoden proportionaliteit nastreven, leggen zij andere accenten:
+            Het idee dat een ideaal stemsysteem bestaat dat 'gerechtigheid' altijd waarborgt, klinkt logisch, maar wiskundig gezien is dat onmogelijk. Volgens Arrow's Impossibility Theorem kan geen enkel stemsysteem voldoen aan een reeks van eerlijkheidscriteria (zoals onafhankelijkheid van irrelevante alternatieven en Pareto-efficiëntie) zonder in conflict te komen met andere criteria. Met andere woorden: ieder stemsysteem moet ergens een compromis sluiten: een partij kan het gevoel krijgen dat haar stem minder recht doet aan de intentie van de kiezer of dat de volgorde van voorkeuren wiskundig paradoxaal wordt.
           </p>
-          
-          <ul className="space-y-3 ml-4">
-            <li className="flex gap-2">
-              <span className="text-blue-600 mt-1">•</span>
-              <span>
-                De <strong>grootste overschotten</strong> zijn helder, toegankelijk en doorgaans sterk proportioneel, maar kennen enkele opmerkelijke wiskundige paradoxen en werken soms in het voordeel van kleinere partijen.
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-blue-600 mt-1">•</span>
-              <span>
-                De <strong>grootste gemiddelden</strong> bieden meer wiskundige consistentie en politieke stabiliteit, maar zijn minder doorzichtig en kunnen grotere partijen bevoordelen.
-              </span>
-            </li>
-          </ul>
 
-          <p className="pt-4 border-t-2 border-blue-300">
-            Welke methode het meest geschikt is, hangt af van de doelen van het kiesstelsel: maximale transparantie en proportionaliteit, of juist stabiliteit en voorspelbaarheid in de zetelverdeling.
+          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <p className="text-gray-700 mb-3">
+              In de context van restzetels betekent dit dat we moeten kiezen welke vorm van eerlijkheid we willen prioriteren:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-700 ml-2">
+              <li>Zo dicht mogelijk bij de exacte proportie van stemmen,</li>
+              <li>Of stabiliteit en vermijding van paradoxen,</li>
+              <li>Of juist maximale eenvoud en transparantie voor kiezers.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* What this means for voters */}
+      <div className="bg-white rounded-lg shadow-sm p-8">
+        <div className="flex items-start gap-4 mb-6">
+          <div className="p-3 bg-green-100 rounded-lg">
+            <Users className="w-8 h-8 text-green-600" />
+          </div>
+          <div>
+            <h2 className="text-green-600">Wat betekent dit voor kiezers?</h2>
+          </div>
+        </div>
+
+        <div className="text-gray-700 space-y-4">
+          <p>
+            De methoden zijn niet willekeurig gekozen; ze zijn het resultaat van lange politieke en maatschappelijke discussies. Geen methode is perfect, maar ieder systeem is ontworpen met inzicht in de praktische gevolgen voor representatie en besluitvorming. Door de mechanismen te begrijpen, krijg je grip op waarom bepaalde partijen meer of minder zetels krijgen en hoe zelfs kleine rekensystemen politiek effect kunnen hebben, bijvoorbeeld op de samenstelling van een regering of de stem van kleinere partijen in het parlement.
           </p>
         </div>
       </div>
 
-      {/* Practical Application */}
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <h3 className="text-gray-900 mb-4">Toepassing in Nederland</h3>
+      {/* Resources Box */}
+      <div className="bg-gradient-to-r from-orange-500 to-blue-500 rounded-lg shadow-sm p-8 text-white">
+        <div className="flex items-start gap-4 mb-6">
+          <ExternalLink className="w-8 h-8 flex-shrink-0" />
+          <div>
+            <h3 className="mb-2">Voor als je er dieper in wil duiken:</h3>
+          </div>
+        </div>
         
-        <div className="space-y-4">
-          <div className="p-4 bg-orange-50 border-l-4 border-orange-500 rounded">
-            <p className="text-orange-900 mb-1">Tweede Kamerverkiezingen</p>
-            <p className="text-orange-800 text-sm">
-              Voor de Tweede Kamerverkiezingen wordt de <strong>methode van de grootste gemiddelden (D'Hondt)</strong> gebruikt.
-            </p>
+        <div className="space-y-3 text-white/90">
+          <div>
+            <span>Stemsystemen: </span>
+            <a 
+              href="https://www.youtube.com/watch?v=yhO6jfHPFQU&t=27s" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              https://www.youtube.com/watch?v=yhO6jfHPFQU&t=27s
+            </a>
           </div>
-
-          <div className="p-4 bg-purple-50 border-l-4 border-purple-500 rounded">
-            <p className="text-purple-900 mb-1">Europese verkiezingen</p>
-            <p className="text-purple-800 text-sm">
-              Ook voor de Europese verkiezingen wordt de <strong>methode van de grootste gemiddelden (D'Hondt)</strong> gebruikt.
-            </p>
+          
+          <div>
+            <span>Arrow's theorem: </span>
+            <span className="italic">link</span>
           </div>
-
-          <div className="p-4 bg-green-50 border-l-4 border-green-500 rounded">
-            <p className="text-green-900 mb-1">Gemeenteraadsverkiezingen</p>
-            <p className="text-green-800 text-sm">
-              Bij gemeenteraadsverkiezingen hangt de methode af van het aantal zetels:
-            </p>
-            <ul className="mt-2 ml-4 space-y-1 text-green-800 text-sm">
-              <li>• Gemeenten met minder dan 19 zetels: <strong>methode van de grootste overschotten</strong> (Hare-Niemeyer)</li>
-              <li>• Gemeenten met 19 of meer zetels: <strong>methode van de grootste gemiddelden</strong> (D'Hondt)</li>
-            </ul>
+          
+          <div>
+            <span>Alabama Paradox: </span>
+            <span className="italic">link</span>
+          </div>
+          
+          <div>
+            <span>Filip Moons over zetels: </span>
+            <a 
+              href="https://www.nporadio1.nl/podcasts/vroeg/132450/hoe-wordt-jouw-stem-een-zetel" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              https://www.nporadio1.nl/podcasts/vroeg/132450/hoe-wordt-jouw-stem-een-zetel
+            </a>
+          </div>
+          
+          <div>
+            <span>Wiskundige benadering restzetelverdeling: </span>
+            <a 
+              href="https://www.nieuwarchief.nl/serie5/pdf/naw5-2024-25-3-140.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              https://www.nieuwarchief.nl/serie5/pdf/naw5-2024-25-3-140.pdf
+            </a>
           </div>
         </div>
       </div>

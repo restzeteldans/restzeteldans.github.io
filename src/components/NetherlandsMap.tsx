@@ -2364,9 +2364,6 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
 	309.7,519.2 309.5,520.7 309.1,521.6 310,525.7 314.2,525.5 315.2,525.7 316.1,528.9 318.3,531.7 318.6,532.6 320.5,530.7 
 	320.9,531.6 320.9,532.2 322.6,532 323.4,531.6 324.5,531.6 324.8,530.3 326.4,529.9 328.8,533 330,531.3 330.5,530.8 330.5,530.4 
 	333,530.8 333.3,529.8 333.7,529.6 334.7,529.8 335.4,527.4 336.6,527.4 337.5,526.4 "/>
-<path id="GM0513" class="st0" d="M236.1,416.9l-0.2,2.5l2.6,0.3l0.4,0.8h1.1l0.4,1.5l0.6,0.2l0.2,0.7l1.1,3.4l-2.1-0.3l-1.3-1.2v0.2
-	l-1.3-0.4l-1.1,0.6l0.7,1.1l-1.5,0.8l-0.7-0.6l-0.2,0.4l-1-0.8l-1.3,1.4l-1.9,0.2l-0.7-0.4l-0.8,0.4l-1.5-1.7l-1.3-0.2l-0.6-0.6
-	l1.9-1.7l-0.8-0.6l1.5-1.1l1.2-0.6l-0.6-0.5l-1.5-0.4l-0.4-0.6l3.2-1.5l3.4-2.6l1.7,0.6l0.4,0.7L236.1,416.9L236.1,416.9z"/>
     `;
     
     console.log('Loading SVG paths from inline data');
@@ -2402,45 +2399,45 @@ export function NetherlandsMap({ onMunicipalityClick, selectedMunicipality }: Ne
     m.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-	// Handle clicks + hover for GM elements (paths, polygons, or shapes inside groups)
-	useEffect(() => {
-	const handleClick = (e: Event) => {
-		const target = e.target as HTMLElement;
-		const group = target.closest('g[id^="GM"], path[id^="GM"], polygon[id^="GM"]') as HTMLElement | null;
-		if (!group || !group.id.startsWith("GM")) return;
+  // Handle clicks + hover for GM elements (paths, polygons, or shapes inside groups)
+useEffect(() => {
+  const handleClick = (e: Event) => {
+    const target = e.target as HTMLElement;
+    const group = target.closest('g[id^="GM"], path[id^="GM"], polygon[id^="GM"]') as HTMLElement | null;
+    if (!group || !group.id.startsWith("GM")) return;
 
-		const gmCode = group.id;
-		const name = gmCodeToName[gmCode];
-		if (name) onMunicipalityClick(name);
-	};
+    const gmCode = group.id;
+    const name = gmCodeToName[gmCode];
+    if (name) onMunicipalityClick(name);
+  };
 
-	const handleHover = (e: Event) => {
-		const target = e.target as HTMLElement;
-		const group = target.closest('g[id^="GM"], path[id^="GM"], polygon[id^="GM"]') as HTMLElement | null;
-		if (!group || !group.id.startsWith("GM")) return;
+  const handleHover = (e: Event) => {
+    const target = e.target as HTMLElement;
+    const group = target.closest('g[id^="GM"], path[id^="GM"], polygon[id^="GM"]') as HTMLElement | null;
+    if (!group || !group.id.startsWith("GM")) return;
 
-		const gmCode = group.id;
-		const name = gmCodeToName[gmCode];
-		setHoveredMunicipality(name ?? null);
-	};
+    const gmCode = group.id;
+    const name = gmCodeToName[gmCode];
+    setHoveredMunicipality(name ?? null);
+  };
 
-	const handleLeave = () => {
-		setHoveredMunicipality(null);
-	};
+  const handleLeave = () => {
+    setHoveredMunicipality(null);
+  };
 
-	const container = mapContainerRef.current;
-	if (container) {
-		container.addEventListener("click", handleClick);
-		container.addEventListener("mouseover", handleHover);
-		container.addEventListener("mouseout", handleLeave);
+  const container = mapContainerRef.current;
+  if (container) {
+    container.addEventListener("click", handleClick);
+    container.addEventListener("mouseover", handleHover);
+    container.addEventListener("mouseout", handleLeave);
 
-		return () => {
-		container.removeEventListener("click", handleClick);
-		container.removeEventListener("mouseover", handleHover);
-		container.removeEventListener("mouseout", handleLeave);
-		};
-	}
-	}, [onMunicipalityClick]);
+    return () => {
+      container.removeEventListener("click", handleClick);
+      container.removeEventListener("mouseover", handleHover);
+      container.removeEventListener("mouseout", handleLeave);
+    };
+  }
+}, [onMunicipalityClick]);
 
   // Update selected state of paths
   useEffect(() => {

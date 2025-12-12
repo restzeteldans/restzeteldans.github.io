@@ -174,6 +174,14 @@ export function MunicipalityTool() {
                 </p>
               </div>
             )}
+            {!municipality.electionResults && (
+              <div className="mt-4 p-4 bg-red-50 border-2 border-red-200 rounded-lg">
+                <p className="text-red-900 mb-1">✖ Geen verkiezingsdata</p>
+                <p className="text-red-800 text-sm">
+                  Voor deze gemeente is geen verkiezingsdata beschikbaar. Het is mogelijk dat deze gemeente niet meedeed aan de algemene verkiezingen in 2022.
+                </p>
+              </div>
+            )}
           </div>
 
           <SeatCalculator municipality={municipality} />

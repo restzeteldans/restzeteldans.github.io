@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Calculator, TrendingUp } from "lucide-react";
+import { Calculator, TrendingUp, RotateCcw } from "lucide-react";
 
 interface Municipality {
   name: string;
@@ -34,17 +34,24 @@ const partyColors: { [key: string]: string } = {
   VVD: "#0066CC",
   D66: "#00A94F",
   PvdA: "#DC143C",
+  "Partij van de Arbeid (P.v.d.A.)": "#DC143C",
   GroenLinks: "#76B82A",
+  GROENLINKS: "#76B82A",
   CDA: "#007B5F",
   SP: "#F8423F",
+  "SP (Socialistische Partij)": "#F8423F",
   PVV: "#0D3D73",
+  "PVV (Partij voor de Vrijheid)": "#0D3D73",
   ChristenUnie: "#00B0F0",
   PvdD: "#006B2D",
+  "Partij voor de Dieren": "#006B2D",
   FvD: "#8B0000",
+  "Forum voor Democratie": "#8B0000",
   DENK: "#00B8C8",
   Volt: "#502379",
   BIJ1: "#FFD700",
   SGP: "#FFA500",
+  "Staatkundig Gereformeerde Partij (SGP)": "#FFA500",
   JA21: "#1E3A8A",
   BBB: "#87CEEB",
   "Lokale Partij": "#f97316",
@@ -64,14 +71,7 @@ const getDefaultParties = (
   );
 
   const distributions = [
-    { name: "Lokale Partij", percentage: 0.23 },
-    { name: "VVD", percentage: 0.18 },
-    { name: "D66", percentage: 0.14 },
-    { name: "CDA", percentage: 0.13 },
-    { name: "GroenLinks", percentage: 0.11 },
-    { name: "PvdA", percentage: 0.1 },
-    { name: "ChristenUnie", percentage: 0.06 },
-    { name: "SP", percentage: 0.05 },
+    { name: "Geen verkiezingsdata", percentage: 0 },
   ];
 
   return distributions.map((d) => ({
@@ -103,9 +103,14 @@ export function SeatCalculator({
   const [parties, setParties] = useState<Party[]>(() =>
     convertElectionResults(municipality),
   );
+  const [initialParties, setInitialParties] = useState<Party[]>(() =>
+    convertElectionResults(municipality).map(p => ({ ...p }))
+  );
 
   useEffect(() => {
-    setParties(convertElectionResults(municipality));
+    const newParties = convertElectionResults(municipality);
+    setParties(newParties);
+    setInitialParties(newParties.map(p => ({ ...p })));
   }, [municipality.name]);
 
   const totalVotes = parties.reduce(
@@ -228,85 +233,40 @@ export function SeatCalculator({
   const primaryAllocations = usesLargestSurplus ? allocationsSurplus : allocationsAverages;
   const primaryMethod = usesLargestSurplus ? "Grootste Overschot (Hare-Niemeyer)" : "Grootste Gemiddelden (D'Hondt)";
 
-  const updateVotes = (index: number, votes: number) => {
-    const newParties = [...parties];
-    newParties[index].votes = Math.max(0, votes);
-    setParties(newParties);
-  };
+    const updateVotes = (index: number, votes: number) => {
+      setParties(prev =>
+        prev.map((p, i) =>
+          i === index ? { ...p, votes: Math.max(0, votes) } : p
+        )
+      );
+    };
+
+    const updatePercentage = (index: number, percentage: number) => {
+      setParties(prev =>
+        prev.map((p, i) =>
+          i === index
+            ? { ...p, votes: Math.round((percentage / 100) * totalVotes) }
+            : p
+        )
+      );
+    };
+
+    const resetVotes = () => {
+      setParties(initialParties.map(p => ({ ...p })));
+    };
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <div className="flex items-center gap-3 mb-6">
-          <Calculator className="w-6 h-6 text-orange-600" />
-          <h3 className="text-gray-900">
-            Interactieve Zetelverdeling
-          </h3>
-        </div>
-
-        <p className="text-gray-700 mb-6">
-          Pas de stemmen aan om te zien hoe de zetels worden
-          verdeeld volgens beide methoden. Let speciaal op het verschil in restzetelverdeling!
-        </p>
-
-        <div className="space-y-4 mb-8">
-          {parties.map((party, index) => (
-            <div
-              key={party.name}
-              className="flex items-center gap-4"
-            >
-              <div
-                className="w-4 h-4 rounded"
-                style={{ backgroundColor: party.color }}
-              />
-              <label className="w-40 text-gray-700">
-                {party.name}
-              </label>
-              <input
-                type="number"
-                value={party.votes}
-                onChange={(e) =>
-                  updateVotes(
-                    index,
-                    parseInt(e.target.value) || 0,
-                  )
-                }
-                className="w-32 px-3 py-2 border border-gray-300 rounded focus:border-orange-500 focus:outline-none"
-              />
-              <span className="text-gray-600 text-sm">
-                stemmen
-              </span>
-            </div>
-          ))}
-        </div>
-
-        <div className="p-4 bg-gray-50 rounded-lg mb-6">
-          <p className="text-gray-900 mb-2">
-            Totaal aantal stemmen:{" "}
-            <span className="text-orange-600">
-              {totalVotes.toLocaleString("nl-NL")}
-            </span>
-          </p>
-          <p className="text-gray-900">
-            Kiesdeler:{" "}
-            <span className="text-orange-600">
-              {electoralQuotient.toFixed(2)}
-            </span>{" "}
-            stemmen per zetel
-          </p>
-        </div>
-      </div>
-
-      {/* Method 1: Largest Surplus */}
+      {/* Combined Methods Box */}
       <div className="bg-white rounded-lg shadow-md p-8">
         <div className="flex items-center gap-3 mb-4">
           <TrendingUp className="w-6 h-6 text-orange-600" />
           <h3 className="text-gray-900">
-            Methode 1: Grootste Overschot
+            Methodes
           </h3>
         </div>
         <p className="text-sm text-gray-600 mb-6">
-          (Ook wel: Hare-Niemeyer methode - meest gebruikt in Nederlandse gemeenten)
+          Vergelijking van beide methodes voor het verdelen van restzetels
         </p>
 
         <div className="overflow-x-auto">
@@ -329,64 +289,87 @@ export function SeatCalculator({
                   Restant
                 </th>
                 <th className="text-right py-3 px-2 text-orange-700">
-                  Restzetel?
+                  Restzetel:<br/>Grootste overschot
                 </th>
                 <th className="text-right py-3 px-2 text-gray-900">
-                  Totaal zetels
+                  Totaal zetels<br/>(Grootste overschot)
+                </th>
+                <th className="text-right py-3 px-2 text-blue-700">
+                  Restzetel:<br/>Grootste gemiddelde
+                </th>
+                <th className="text-right py-3 px-2 text-gray-900">
+                  Totaal zetels<br/>(Grootste gemiddelde)
                 </th>
               </tr>
             </thead>
             <tbody>
-              {allocationsSurplus.map((allocation) => (
-                <tr
-                  key={allocation.party}
-                  className="border-b border-gray-100"
-                >
-                  <td className="py-3 px-2">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-3 h-3 rounded"
-                        style={{
-                          backgroundColor: allocation.color,
-                        }}
-                      />
+              {allocationsSurplus.map((allocation, index) => {
+                const avgAllocation = allocationsAverages.find(a => a.party === allocation.party);
+                return (
+                  <tr
+                    key={allocation.party}
+                    className="border-b border-gray-100"
+                  >
+                    <td className="py-3 px-2">
+                      <div className="flex items-center gap-2">
+                        <div
+                          className="w-3 h-3 rounded"
+                          style={{
+                            backgroundColor: allocation.color,
+                          }}
+                        />
+                        <span className="text-gray-900">
+                          {allocation.party}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="text-right py-3 px-2 text-gray-700">
+                      {allocation.votes.toLocaleString("nl-NL")}
+                    </td>
+                    <td className="text-right py-3 px-2 text-gray-700">
+                      {(
+                        (allocation.votes / totalVotes) *
+                        100
+                      ).toLocaleString("nl-NL", {minimumFractionDigits: 1, maximumFractionDigits: 1,})}
+                      %
+                    </td>
+                    <td className="text-right py-3 px-2 text-gray-700">
+                      {allocation.fullSeats}
+                    </td>
+                    <td className="text-right py-3 px-2 text-gray-700">
+                      {allocation.remainder.toLocaleString("nl-NL", {minimumFractionDigits: 3, maximumFractionDigits: 3,})}
+                    </td>
+                    <td className="text-right py-3 px-2">
+                      {allocation.restSeat ? (
+                        <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded text-sm">
+                          +1
+                        </span>
+                      ) : (
+                        <span className="text-gray-400">-</span>
+                      )}
+                    </td>
+                    <td className="text-right py-3 px-2">
                       <span className="text-gray-900">
-                        {allocation.party}
+                        {allocation.totalSeats}
                       </span>
-                    </div>
-                  </td>
-                  <td className="text-right py-3 px-2 text-gray-700">
-                    {allocation.votes.toLocaleString("nl-NL")}
-                  </td>
-                  <td className="text-right py-3 px-2 text-gray-700">
-                    {(
-                      (allocation.votes / totalVotes) *
-                      100
-                    ).toFixed(1)}
-                    %
-                  </td>
-                  <td className="text-right py-3 px-2 text-gray-700">
-                    {allocation.fullSeats}
-                  </td>
-                  <td className="text-right py-3 px-2 text-gray-700">
-                    {allocation.remainder.toFixed(3)}
-                  </td>
-                  <td className="text-right py-3 px-2">
-                    {allocation.restSeat ? (
-                      <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded text-sm">
-                        +1
+                    </td>
+                    <td className="text-right py-3 px-2">
+                      {avgAllocation?.restSeat ? (
+                        <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm">
+                          +{avgAllocation.totalSeats - avgAllocation.fullSeats}
+                        </span>
+                      ) : (
+                        <span className="text-gray-400">-</span>
+                      )}
+                    </td>
+                    <td className="text-right py-3 px-2">
+                      <span className="text-gray-900">
+                        {avgAllocation?.totalSeats || 0}
                       </span>
-                    ) : (
-                      <span className="text-gray-400">-</span>
-                    )}
-                  </td>
-                  <td className="text-right py-3 px-2">
-                    <span className="text-gray-900">
-                      {allocation.totalSeats}
-                    </span>
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                  </tr>
+                );
+              })}
               <tr className="border-t-2 border-gray-300">
                 <td
                   colSpan={5}
@@ -400,140 +383,6 @@ export function SeatCalculator({
                 <td className="text-right py-3 px-2 text-orange-600">
                   {totalAllocatedSurplus}
                 </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        {remainingSeatsSurplus > 0 && (
-          <div className="mt-6 p-4 bg-orange-50 border-2 border-orange-200 rounded-lg">
-            <p className="text-orange-900 mb-2">
-              🎯 Restzetels toewijzing (Grootste Overschot)
-            </p>
-            <p className="text-orange-800 text-sm mb-3">
-              Er zijn {remainingSeatsSurplus} restzetel
-              {remainingSeatsSurplus > 1 ? "en" : ""} te verdelen. Deze
-              worden toegewezen aan de partijen met de hoogste
-              restanten:
-            </p>
-            <div className="space-y-1">
-              {allocationsSurplus
-                .filter((a) => a.restSeat)
-                .sort((a, b) => b.remainder - a.remainder)
-                .map((allocation, index) => (
-                  <p
-                    key={allocation.party}
-                    className="text-orange-800 text-sm"
-                  >
-                    {index + 1}.{" "}
-                    <span className="text-orange-900">
-                      {allocation.party}
-                    </span>{" "}
-                    - restant: {allocation.remainder.toFixed(3)}
-                  </p>
-                ))}
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Method 2: Largest Averages */}
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <div className="flex items-center gap-3 mb-4">
-          <TrendingUp className="w-6 h-6 text-blue-600" />
-          <h3 className="text-gray-900">
-            Methode 2: Grootste Gemiddelden
-          </h3>
-        </div>
-        <p className="text-sm text-gray-600 mb-6">
-          (Ook wel: D'Hondt methode - gebruikt voor Tweede Kamerverkiezingen)
-        </p>
-
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b-2 border-gray-200">
-                <th className="text-left py-3 px-2 text-gray-700">
-                  Partij
-                </th>
-                <th className="text-right py-3 px-2 text-gray-700">
-                  Stemmen
-                </th>
-                <th className="text-right py-3 px-2 text-gray-700">
-                  %
-                </th>
-                <th className="text-right py-3 px-2 text-gray-700">
-                  Volle zetels
-                </th>
-                <th className="text-right py-3 px-2 text-gray-700">
-                  Restant
-                </th>
-                <th className="text-right py-3 px-2 text-blue-700">
-                  Restzetel?
-                </th>
-                <th className="text-right py-3 px-2 text-gray-900">
-                  Totaal zetels
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {allocationsAverages.map((allocation) => (
-                <tr
-                  key={allocation.party}
-                  className="border-b border-gray-100"
-                >
-                  <td className="py-3 px-2">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-3 h-3 rounded"
-                        style={{
-                          backgroundColor: allocation.color,
-                        }}
-                      />
-                      <span className="text-gray-900">
-                        {allocation.party}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="text-right py-3 px-2 text-gray-700">
-                    {allocation.votes.toLocaleString("nl-NL")}
-                  </td>
-                  <td className="text-right py-3 px-2 text-gray-700">
-                    {(
-                      (allocation.votes / totalVotes) *
-                      100
-                    ).toFixed(1)}
-                    %
-                  </td>
-                  <td className="text-right py-3 px-2 text-gray-700">
-                    {allocation.fullSeats}
-                  </td>
-                  <td className="text-right py-3 px-2 text-gray-700">
-                    {allocation.remainder.toFixed(3)}
-                  </td>
-                  <td className="text-right py-3 px-2">
-                    {allocation.restSeat ? (
-                      <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm">
-                        +{allocation.totalSeats - allocation.fullSeats}
-                      </span>
-                    ) : (
-                      <span className="text-gray-400">-</span>
-                    )}
-                  </td>
-                  <td className="text-right py-3 px-2">
-                    <span className="text-gray-900">
-                      {allocation.totalSeats}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-              <tr className="border-t-2 border-gray-300">
-                <td
-                  colSpan={5}
-                  className="py-3 px-2 text-gray-900"
-                >
-                  Totaal
-                </td>
                 <td className="text-right py-3 px-2 text-gray-900">
                   {remainingSeatsAverages} restzetels
                 </td>
@@ -545,16 +394,137 @@ export function SeatCalculator({
           </table>
         </div>
 
-        {remainingSeatsAverages > 0 && (
-          <div className="mt-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
-            <p className="text-blue-900 mb-2">
-              🎯 Restzetels toewijzing (Grootste Gemiddelden)
-            </p>
-            <p className="text-blue-800 text-sm mb-3">
-              Bij deze methode worden zetels één voor één toegewezen aan de partij met het hoogste gemiddelde (stemmen gedeeld door zetels+1).
-            </p>
+        {(remainingSeatsSurplus > 0 || remainingSeatsAverages > 0) && (
+          <div className="mt-6 grid md:grid-cols-2 gap-4">
+            {remainingSeatsSurplus > 0 && (
+              <div className="p-4 bg-orange-50 border-2 border-orange-200 rounded-lg">
+                <p className="text-orange-900 mb-2">
+                  🎯 Restzetels toewijzing (Grootste Overschot)
+                </p>
+                <p className="text-orange-800 text-sm mb-3">
+                  Er zijn {remainingSeatsSurplus} restzetel
+                  {remainingSeatsSurplus > 1 ? "en" : ""} te verdelen. Deze
+                  worden toegewezen aan de partijen met de hoogste
+                  restanten:
+                </p>
+                <div className="space-y-1">
+                  {allocationsSurplus
+                    .filter((a) => a.restSeat)
+                    .sort((a, b) => b.remainder - a.remainder)
+                    .map((allocation, index) => (
+                      <p
+                        key={allocation.party}
+                        className="text-orange-800 text-sm"
+                      >
+                        {index + 1}.{" "}
+                        <span className="text-orange-900">
+                          {allocation.party}
+                        </span>{" "}
+                        - restant: {allocation.remainder.toLocaleString("nl-NL", {minimumFractionDigits: 3, maximumFractionDigits: 3,})}
+                      </p>
+                    ))}
+                </div>
+              </div>
+            )}
+
+            {remainingSeatsAverages > 0 && (
+              <div className="p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+                <p className="text-blue-900 mb-2">
+                  🎯 Restzetels toewijzing (Grootste Gemiddelden)
+                </p>
+                <p className="text-blue-800 text-sm mb-3">
+                  Bij deze methode worden zetels één voor één toegewezen aan de partij met het hoogste gemiddelde (stemmen gedeeld door zetels+1).
+                </p>
+              </div>
+            )}
           </div>
         )}
+      </div>
+
+      {/* Interactive Calculator */}
+      <div className="bg-white rounded-lg shadow-md p-8">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3">
+            <Calculator className="w-6 h-6 text-orange-600" />
+            <h3 className="text-gray-900">
+              Interactieve Zetelverdeling
+            </h3>
+          </div>
+          <button
+            onClick={resetVotes}
+            className="flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition-colors"
+          >
+            <RotateCcw className="w-4 h-4" />
+            Reset
+          </button>
+        </div>
+
+        <p className="text-gray-700 mb-6">
+          Pas de stemmen aan om te zien hoe de zetels worden
+          verdeeld volgens beide methoden. Let speciaal op het verschil in restzetelverdeling!
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 mb-8">
+          {parties.map((party, index) => (
+            <div
+              key={party.name}
+              className="flex items-center gap-3"
+            >
+              <div
+                className="w-4 h-4 rounded flex-shrink-0"
+                style={{ backgroundColor: party.color }}
+              />
+              <label className="w-32 text-gray-700 text-sm flex-shrink-0">
+                {party.name}
+              </label>
+              <input
+                type="number"
+                value={party.votes}
+                onChange={(e) =>
+                  updateVotes(
+                    index,
+                    parseInt(e.target.value) || 0,
+                  )
+                }
+                className="w-28 px-2 py-1 text-sm border border-gray-300 rounded focus:border-orange-500 focus:outline-none"
+              />
+              <span className="text-gray-600 text-xs flex-shrink-0">
+                stemmen
+              </span>
+              <input
+                type="number"
+                step="0.1"
+                value={totalVotes > 0 ? ((party.votes / totalVotes) * 100).toFixed(1) : 0}
+                onChange={(e) =>
+                  updatePercentage(
+                    index,
+                    parseFloat(e.target.value) || 0,
+                  )
+                }
+                className="w-16 px-2 py-1 text-sm border border-gray-300 rounded focus:border-orange-500 focus:outline-none"
+              />
+              <span className="text-gray-600 text-xs flex-shrink-0">
+                %
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="p-4 bg-gray-50 rounded-lg mb-6">
+          <p className="text-gray-900 mb-2">
+            Totaal aantal stemmen:{" "}
+            <span className="text-orange-600">
+              {totalVotes.toLocaleString("nl-NL")}
+            </span>
+          </p>
+          <p className="text-gray-900">
+            Kiesdeler:{" "}
+            <span className="text-orange-600">
+              {electoralQuotient.toFixed(2)}
+            </span>{" "}
+            stemmen per zetel
+          </p>
+        </div>
       </div>
 
       {/* Comparison */}

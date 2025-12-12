@@ -394,22 +394,6 @@ export const municipalities: Municipality[] = [
         { party: 'JEZUS LEEFT', votes: 251, seats: 0 }
     ]
   },
-  { name: 'Bergen Op Zoom', inhabitants: 54440, seats: 21, turnout: 55.1, province: 'Noord-Brabant', x: 49, y: 30, electionResults: [
-        { party: 'GBWP', votes: 4581, seats: 0 },
-        { party: 'VVD', votes: 3463, seats: 0 },
-        { party: 'Lijst Linssen', votes: 2136, seats: 0 },
-        { party: 'CDA', votes: 1829, seats: 0 },
-        { party: 'D66', votes: 2006, seats: 0 },
-        { party: 'BSD', votes: 1790, seats: 0 },
-        { party: 'GROENLINKS', votes: 1660, seats: 0 },
-        { party: 'Partij van de Arbeid (P.v.d.A.)', votes: 1347, seats: 0 },
-        { party: 'SP (Socialistische Partij)', votes: 851, seats: 0 },
-        { party: '50PLUS', votes: 1117, seats: 0 },
-        { party: 'Lokaal Realisme', votes: 1859, seats: 0 },
-        { party: 'Belang van Bergen op Zoom (BVB)', votes: 1118, seats: 0 },
-        { party: 'SAMEN0164', votes: 769, seats: 0 }
-    ]
-  },
   { name: 'Berkelland', inhabitants: 43527, seats: 25, turnout: 59.3, province: 'Gelderland', x: 67, y: 50, electionResults: [
         { party: 'CDA', votes: 4826, seats: 0 },
         { party: 'OBL (Ondernemend Berkelland)', votes: 3984, seats: 0 },
@@ -544,10 +528,7 @@ export const municipalities: Municipality[] = [
         { party: 'D66', votes: 662, seats: 0 }
     ]
   },
-  { name: 'Boxtel', inhabitants: 33197, seats: 23, turnout: 57.3, province: 'Noord-Brabant', x: 55, y: 61, electionResults: [
-        { party: 'Geen verkiezingen', votes: 0, seats: 0 },
-    ] 
-  },
+  { name: 'Boxtel', inhabitants: 33197, seats: 23, turnout: 57.3, province: 'Noord-Brabant', x: 55, y: 61 },
   { name: 'Breda', inhabitants: 184403, seats: 39, turnout: 53.8, province: 'Noord-Brabant', x: 49, y: 60, electionResults: [
         { party: 'VVD', votes: 16181, seats: 0 },
         { party: 'D66', votes: 10355, seats: 0 },
@@ -566,10 +547,7 @@ export const municipalities: Municipality[] = [
         { party: 'SHOUT!', votes: 525, seats: 0 }
     ]
   },
-  { name: 'Brielle', inhabitants: 17439, seats: 17, turnout: 55.7, province: 'Zuid-Holland', x: 46, y: 50, electionResults: [
-        { party: 'Onbekend', votes: 0, seats: 0 } 
-    ] 
-  },
+  { name: 'Brielle', inhabitants: 17439, seats: 17, turnout: 55.7, province: 'Zuid-Holland', x: 46, y: 50 },
   { name: 'Bronckhorst', inhabitants: 36032, seats: 23, turnout: 61.2, province: 'Gelderland', x: 65, y: 48, electionResults: [
         { party: 'Gemeentebelangen Bronckhorst (GBB)', votes: 5228, seats: 0 },
         { party: 'CDA', votes: 4351, seats: 0 },
@@ -807,16 +785,16 @@ export const municipalities: Municipality[] = [
         { party: 'Onafhankelijke Partij Diemen', votes: 956, seats: 0 }
     ]
   },
+  { name: 'Dijk en Waard', inhabitants: 90747, seats: 19, turnout: 60.2, province: 'Noord-Holland', x: 70, y: 48, electionResults: [
+        { party: 'Onbekend', votes: 0, seats: 0 }
+    ]
+  },
   { name: 'Dinkelland', inhabitants: 26470, seats: 19, turnout: 60.2, province: 'Overijssel', x: 70, y: 48, electionResults: [
         { party: 'Lokaal Dinkelland', votes: 4474, seats: 0 },
         { party: 'CDA', votes: 4372, seats: 0 },
         { party: 'VVD', votes: 2004, seats: 0 },
         { party: 'Partij van de Arbeid (P.v.d.A.) / GROENLINKS', votes: 1200, seats: 0 },
         { party: 'Burgerbelangen Dinkelland', votes: 782, seats: 0 }
-    ]
-  },
-  { name: 'Dijk en Waard', inhabitants: 90747, seats: 19, turnout: 60.2, province: 'Noord-Holland', x: 70, y: 48, electionResults: [
-        { party: 'Onbekend', votes: 0, seats: 0 }
     ]
   },
   { name: 'Doesburg', inhabitants: 11078, seats: 13, turnout: 56.4, province: 'Gelderland', x: 64, y: 46, electionResults: [
@@ -968,10 +946,7 @@ export const municipalities: Municipality[] = [
         { party: 'D66', votes: 436, seats: 0 }
     ]
   },
-  { name: 'Eemsdelta', inhabitants: 46079, seats: 27, turnout: 51.6, province: 'Groningen', x: 70, y: 18, electionResults: [
-        { party: 'Geen verkiezingen', votes: 0, seats: 0 },
-    ]
-  },
+  { name: 'Eemsdelta', inhabitants: 46079, seats: 27, turnout: 51.6, province: 'Groningen', x: 70, y: 18 },
   { name: 'Eersel', inhabitants: 19314, seats: 17, turnout: 60.3, province: 'Noord-Brabant', x: 55, y: 65, electionResults: [
         { party: 'Eersel Samen Anders', votes: 3799, seats: 0 },
         { party: 'Partij van de Arbeid / GROENLINKS', votes: 1288, seats: 0 },
@@ -1366,6 +1341,15 @@ export const municipalities: Municipality[] = [
         { party: 'D66', votes: 395, seats: 0 }
     ]
   },
+  { name: 'Heerde', inhabitants: 19300, seats: 25, turnout: 52.7, province: 'Gelderland', x: 49, y: 33, electionResults: [
+    { party: 'ChristenUnie-SGP', votes: 1830, seats: 0 },
+    { party: 'CDA', votes: 1985, seats: 0 },
+    { party: 'Gemeentebelang-Boeren Partij (GBP)', votes: 1986, seats: 0 },
+    { party: 'VVD', votes: 862, seats: 0 },
+    { party: 'D66 / GROENLINKS', votes: 1230, seats: 0 },
+    { party: 'Partij van de Arbeid (P.v.d.A.)', votes: 927, seats: 0 },
+    ]
+  },
   { name: 'Heemskerk', inhabitants: 39188, seats: 25, turnout: 52.7, province: 'Noord-Holland', x: 49, y: 33, electionResults: [
         { party: 'Heemskerk Lokaal', votes: 4820, seats: 0 },
         { party: 'D66', votes: 1895, seats: 0 },
@@ -1450,10 +1434,7 @@ export const municipalities: Municipality[] = [
         { party: 'Partij van de Arbeid (P.v.d.A.)', votes: 648, seats: 0 }
     ]
   },
-  { name: 'Hellevoetsluis', inhabitants: 40158, seats: 25, turnout: 53.9, province: 'Zuid-Holland', x: 46, y: 51, electionResults: [
-        { party: 'Onbekend', votes: 0, seats: 0 } 
-    ] 
-  },
+  { name: 'Hellevoetsluis', inhabitants: 40158, seats: 25, turnout: 53.9, province: 'Zuid-Holland', x: 46, y: 51 },
   { name: 'Helmond', inhabitants: 92968, seats: 35, turnout: 48.3, province: 'Noord-Brabant', x: 58, y: 62, electionResults: [
         { party: 'GROENLINKS', votes: 4887, seats: 0 },
         { party: 'VVD', votes: 4763, seats: 0 },
@@ -1786,10 +1767,6 @@ export const municipalities: Municipality[] = [
         { party: 'Partij van de Arbeid (P.v.d.A.)', votes: 762, seats: 0 }
     ]
   },
-  { name: 'Land van Cuijk', inhabitants: 0, seats: 0, turnout: 0, province: 'Noord-Brabant', x: 60, y: 77, electionResults: [
-        { party: 'Geen verkiezingen', votes: 0, seats: 0 },
-    ]
-  },
   { name: 'Landgraaf', inhabitants: 37457, seats: 25, turnout: 49.2, province: 'Limburg', x: 60, y: 77, electionResults: [
         { party: 'GBBL Ubach over Worms', votes: 2511, seats: 0 },
         { party: 'GBBL Schaesberg', votes: 2133, seats: 0 },
@@ -1814,6 +1791,7 @@ export const municipalities: Municipality[] = [
         { party: 'Lijst Hop en Honing', votes: 139, seats: 0 }
     ]
   },
+  { name: 'Land van Cuijk', inhabitants: 0, seats: 0, turnout: 0, province: 'Noord-Brabant', x: 60, y: 77 },
   { name: 'Lansingerland', inhabitants: 63365, seats: 31, turnout: 54.7, province: 'Zuid-Holland', x: 48, y: 47, electionResults: [
         { party: 'WIJ Lansingerland', votes: 5281, seats: 0 },
         { party: 'Leefbaar 3B', votes: 5241, seats: 0 },
@@ -2000,10 +1978,7 @@ export const municipalities: Municipality[] = [
         { party: 'D66', votes: 623, seats: 0 }
     ]
   },
-  { name: 'Maashorst', inhabitants: 58362, seats: 19, turnout: 59.3, province: 'Noord-Brabant', x: 61, y: 69, electionResults: [
-        { party: 'Geen verkiezingen', votes: 3676, seats: 0 }
-    ]
-  },
+  { name: 'Maashorst', inhabitants: 58362, seats: 19, turnout: 59.3, province: 'Noord-Brabant', x: 61, y: 69 },
   { name: 'Maassluis', inhabitants: 33216, seats: 23, turnout: 50.4, province: 'Zuid-Holland', x: 46, y: 48, electionResults: [
         { party: 'CDA', votes: 2173, seats: 0 },
         { party: 'Partij van de Arbeid (P.v.d.A.)', votes: 1894, seats: 0 },
@@ -2268,16 +2243,16 @@ export const municipalities: Municipality[] = [
     ]
   },
   { name: 'Noardeast-Fryslân', inhabitants: 45251, seats: 27, turnout: 55.8, province: 'Friesland', x: 62, y: 17, electionResults: [
+        { party: 'CDA', votes: 2769, seats: 0 },
         { party: 'FNP', votes: 4643, seats: 0 },
         { party: 'S!N - Sociaal in Noardeast-Fryslân', votes: 4299, seats: 0 },
-        { party: 'CDA', votes: 2769, seats: 0 },
         { party: 'ChristenUnie', votes: 2286, seats: 0 },
-        { party: 'Belang van Nederland (BVNL)', votes: 1660, seats: 0 },
+        { party: 'VVD', votes: 909, seats: 0 },
         { party: 'Partij van de Arbeid (P.v.d.A.)', votes: 1436, seats: 0 },
         { party: 'Gemeentebelangen Noardeast-Fryslân', votes: 1121, seats: 0 },
-        { party: 'VVD', votes: 909, seats: 0 },
         { party: 'Actief Lokaal', votes: 321, seats: 0 },
-        { party: 'Waddenpartij', votes: 296, seats: 0 }
+        { party: 'Waddenpartij', votes: 296, seats: 0 },
+        { party: 'Belang van Nederland (BVNL)', votes: 1660, seats: 0 },
     ] 
   },
   { name: 'Noord-Beveland', inhabitants: 7395, seats: 11, turnout: 60.4, province: 'Zeeland', x: 43, y: 56, electionResults: [
@@ -2365,10 +2340,7 @@ export const municipalities: Municipality[] = [
         { party: 'D66', votes: 729, seats: 0 }
     ]
   },
-  { name: 'Oisterwijk', inhabitants: 26241, seats: 19, turnout: 60.2, province: 'Noord-Brabant', x: 53, y: 61, electionResults: [
-        { party: 'Geen verkiezingen', votes: 0, seats: 0 },
-    ] 
-  },
+  { name: 'Oisterwijk', inhabitants: 26241, seats: 19, turnout: 60.2, province: 'Noord-Brabant', x: 53, y: 61 },
   { name: 'Oldambt', inhabitants: 38213, seats: 25, turnout: 51.8, province: 'Groningen', x: 72, y: 20, electionResults: [
         { party: 'Partij van de Arbeid (P.v.d.A.)', votes: 2161, seats: 0 },
         { party: 'Gemeentebelangen Oldambt', votes: 1967, seats: 0 },
@@ -2585,10 +2557,7 @@ export const municipalities: Municipality[] = [
         { party: 'ChristenUnie-SGP', votes: 1076, seats: 0 }
     ]
   },
-  { name: 'Purmerend', inhabitants: 81233, seats: 33, turnout: 49.8, province: 'Noord-Holland', x: 52, y: 33, electionResults: [
-        { party: 'Geen verkiezingen', votes: 0, seats: 0 },
-    ]
-  },
+  { name: 'Purmerend', inhabitants: 81233, seats: 33, turnout: 49.8, province: 'Noord-Holland', x: 52, y: 33 },
   { name: 'Putten', inhabitants: 24664, seats: 19, turnout: 62.8, province: 'Gelderland', x: 59, y: 41, electionResults: [
         { party: 'Wij Putten', votes: 2554, seats: 0 },
         { party: 'GEMEENTEBELANGEN', votes: 2170, seats: 0 },
@@ -2828,12 +2797,44 @@ export const municipalities: Municipality[] = [
         { party: 'SP (Socialistische Partij)', votes: 861, seats: 0 }
     ]
   },
+    { name: "'s-Hertogenbosch", inhabitants: 112851, seats: 23, turnout: 57.9, province: 'Noord-Brabant', x: 43, y: 53, electionResults: [
+    { party: 'D66', votes: 8418, seats: 0 },
+    { party: 'VVD', votes: 7037, seats: 0 },
+    { party: 'Rosmalens Belang', votes: 5488, seats: 0 },
+    { party: 'GROENLINKS', votes: 5996, seats: 0 },
+    { party: 'CDA', votes: 4858, seats: 0 },
+    { party: 'De Bossche Groenen', votes: 4845, seats: 0 },
+    { party: 'Partij van de Arbeid (P.v.d.A.)', votes: 4222, seats: 0 },
+    { party: "Leefbaar 's-Hertogenbosch Paul Kagie", votes: 3130, seats: 0 },
+    { party: 'SP (Socialistische Partij)', votes: 2828, seats: 0 },
+    { party: "RAADSGROEPERING ''BOSCH-BELANG''", votes: 1854, seats: 0 },
+    { party: 'PVV (Partij voor de Vrijheid)', votes: 1782, seats: 0 },
+    { party: '50PLUS', votes: 1543, seats: 0 },
+    { party: 'gewoon ge-DREVEN', votes: 1830, seats: 0 },
+    { party: 'Forum voor Democratie', votes: 1322, seats: 0 },
+    { party: 'Partij voor de Dieren', votes: 2094, seats: 0 },
+    { party: 'Volt', votes: 2025, seats: 0 },
+    { party: 'VOOR Den Bosch Joep Gersjes', votes: 1699, seats: 0 },
+    ]
+  },
   { name: 'Simpelveld', inhabitants: 10552, seats: 13, turnout: 61.2, province: 'Limburg', x: 60, y: 78, electionResults: [
         { party: 'Samen 1', votes: 1609, seats: 0 },
         { party: 'BurgerBelangen', votes: 1251, seats: 0 },
         { party: 'Leefbaar Simpelveld', votes: 888, seats: 0 },
         { party: 'CDA', votes: 696, seats: 0 },
         { party: 'Lokaal Actief', votes: 468, seats: 0 }
+    ]
+  },
+  { name: 'Sint-Michielsgestel', inhabitants: 30180, seats: 13, turnout: 61.2, province: 'Limburg', x: 60, y: 78, electionResults: [
+    { party: 'PPA', votes: 3758, seats: 0 },
+    { party: 'CDA', votes: 2153, seats: 0 },
+    { party: 'DorpsGoed', votes: 1711, seats: 0 },
+    { party: 'GROENLINKS / Partij van de Arbeid (P.v.d.A.)', votes: 1579, seats: 0 },
+    { party: 'De Gestelse Coalitie', votes: 1082, seats: 0 },
+    { party: 'VVD', votes: 1080, seats: 0 },
+    { party: 'D66', votes: 813, seats: 0 },
+    { party: 'Podium5', votes: 425, seats: 0 },
+    { party: 'Blanco (van Asch, R.W.G.T.)', votes: 286, seats: 0 },
     ]
   },
   { name: 'Sittard-Geleen', inhabitants: 91976, seats: 35, turnout: 52.8, province: 'Limburg', x: 60, y: 74, electionResults: [
@@ -2953,7 +2954,7 @@ export const municipalities: Municipality[] = [
         { party: 'SP (Socialistische Partij)', votes: 459, seats: 0 },
         { party: 'Eerlijk Leefbaar Stede Broec', votes: 378, seats: 0 }
     ]
-  },
+  },  
   { name: 'Steenbergen', inhabitants: 24494, seats: 25, turnout: 56.7, province: 'Overijssel', x: 63, y: 33, electionResults: [
         { party: 'Gewoon Lokaal!', votes: 2540, seats: 0 },
         { party: 'De Volkspartij', votes: 1405, seats: 0 },
@@ -3432,10 +3433,7 @@ export const municipalities: Municipality[] = [
         { party: 'Staatkundig Gereformeerde Partij (SGP)', votes: 530, seats: 0 }
     ]
   },
-  { name: 'Vught', inhabitants: 26554, seats: 19, turnout: 60.7, province: 'Noord-Brabant', x: 55, y: 61, electionResults: [
-        { party: 'Geen verkiezingen', votes: 0, seats: 0 },
-    ]
-  },
+  { name: 'Vught', inhabitants: 26554, seats: 19, turnout: 60.7, province: 'Noord-Brabant', x: 55, y: 61 },
   { name: 'Waadhoeke', inhabitants: 46079, seats: 27, turnout: 56.3, province: 'Friesland', x: 57, y: 18, electionResults: [
         { party: 'SAM Waadhoeke', votes: 4407, seats: 0 },
         { party: 'Gemeentebelangen', votes: 4329, seats: 0 },
@@ -3606,10 +3604,7 @@ export const municipalities: Municipality[] = [
         { party: 'Krachtig Sociaal Groen', votes: 296, seats: 0 }
     ]
   },
-  { name: 'Westvoorne', inhabitants: 0, seats: 0, turnout: 0, province: 'Zuid-Holland', x: 45, y: 50, electionResults: [
-        { party: 'Onbekend', votes: 0, seats: 0 } 
-    ]
-  },
+  { name: 'Westvoorne', inhabitants: 14728, seats: 15, turnout: 58.6, province: 'Zuid-Holland', x: 45, y: 50 },
   { name: 'Wierden', inhabitants: 24440, seats: 19, turnout: 60.4, province: 'Overijssel', x: 67, y: 44, electionResults: [
         { party: 'Nieuw Enter Wierden', votes: 4978, seats: 0 },
         { party: 'CDA', votes: 2590, seats: 0 },

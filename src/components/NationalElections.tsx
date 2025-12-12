@@ -40,21 +40,28 @@ const partyColors: { [key: string]: string } = {
 
 // 2025 National Election Results
 const nationalElectionResults = [
-  { name: "D66", percentage: 16.94, seats: 26, votes: 2542500 },
-  { name: "PVV", percentage: 16.66, seats: 26, votes: 2499000 },
-  { name: "VVD", percentage: 14.24, seats: 22, votes: 2136000 },
-  { name: "GL-PvdA", percentage: 12.79, seats: 20, votes: 1918500 },
-  { name: "CDA", percentage: 11.79, seats: 18, votes: 1768500 },
-  { name: "JA21", percentage: 5.95, seats: 9, votes: 892500 },
-  { name: "FvD", percentage: 4.54, seats: 7, votes: 681000 },
-  { name: "BBB", percentage: 2.65, seats: 4, votes: 397500 },
-  { name: "DENK", percentage: 2.37, seats: 3, votes: 355500 },
-  { name: "SGP", percentage: 2.25, seats: 3, votes: 337500 },
-  { name: "PvdD", percentage: 2.08, seats: 3, votes: 312000 },
-  { name: "CU", percentage: 1.90, seats: 3, votes: 285000 },
-  { name: "SP", percentage: 1.89, seats: 3, votes: 283500 },
-  { name: "50+", percentage: 1.43, seats: 2, votes: 214500 },
-  { name: "Volt", percentage: 1.10, seats: 1, votes: 165000 },
+  { name: "D66", percentage: 16.94, seats: 26, votes: 1790634 },
+  { name: "PVV", percentage: 16.66, seats: 26, votes: 1760966 },
+  { name: "VVD", percentage: 14.24, seats: 22, votes: 1505829 },
+  { name: "GL-PvdA", percentage: 12.79, seats: 20, votes: 1352163 },
+  { name: "CDA", percentage: 11.79, seats: 18, votes: 1246874 },
+  { name: "JA21", percentage: 5.95, seats: 9, votes: 628517 },
+  { name: "FvD", percentage: 4.54, seats: 7, votes: 480393 },
+  { name: "BBB", percentage: 2.65, seats: 4, votes: 279916 },
+  { name: "DENK", percentage: 2.37, seats: 3, votes: 250368 },
+  { name: "SGP", percentage: 2.25, seats: 3, votes: 238093 },
+  { name: "PvdD", percentage: 2.08, seats: 3, votes: 219371 },
+  { name: "CU", percentage: 1.90, seats: 3, votes: 201361 },
+  { name: "SP", percentage: 1.89, seats: 3, votes: 199585 },
+  { name: "50+", percentage: 1.43, seats: 2, votes: 151053 },
+  { name: "Volt", percentage: 1.10, seats: 1, votes: 116468 },
+  { name: "Bij1", percentage: 0.38, seats: 0, votes: 40360 },
+  { name: "Nieuw Sociaal Contract (NSC)", percentage: 0.37, seats: 0, votes: 39408 },
+  { name: "Belang Van Nederland (BVNL)", percentage: 0.17, seats: 0, votes: 18477 },
+  { name: "Vrede voor Dieren", percentage: 0.16, seats: 0, votes: 16819 },
+  { name: "Piratenpartij", percentage: 0.10, seats: 0, votes: 10575 },
+  { name: "FNP", percentage: 0.09, seats: 0, votes: 9331 },
+  { name: "LP", percentage: 0.08, seats: 0, votes: 8248 },
 ];
 
 export function NationalElections() {
@@ -490,14 +497,14 @@ export function NationalElections() {
                     {(
                       (allocation.votes / totalVotes) *
                       100
-                    ).toFixed(1)}
+                    ).toLocaleString("nl-NL", {minimumFractionDigits: 1, maximumFractionDigits: 1,})}
                     %
                   </td>
                   <td className="text-right py-3 px-2 text-gray-700">
                     {allocation.fullSeats}
                   </td>
                   <td className="text-right py-3 px-2 text-gray-700">
-                    {allocation.remainder.toFixed(3)}
+                    {allocation.remainder.toLocaleString("nl-NL", {minimumFractionDigits: 3, maximumFractionDigits: 3,})}
                   </td>
                   <td className="text-right py-3 px-2">
                     {allocation.restSeatSurplus ? (
@@ -577,7 +584,7 @@ export function NationalElections() {
                     <span className="text-orange-900">
                       {allocation.party}
                     </span>{" "}
-                    - restant: {allocation.remainder.toFixed(3)}
+                    - restant: {allocation.remainder.toLocaleString("nl-NL", {minimumFractionDigits: 3, maximumFractionDigits: 3,})}
                   </p>
                 ))}
             </div>
