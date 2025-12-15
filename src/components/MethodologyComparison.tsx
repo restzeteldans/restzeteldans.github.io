@@ -223,12 +223,26 @@ export function MethodologyComparison() {
           
           <div>
             <span>Arrow's theorem: </span>
-            <span className="italic">link</span>
+            <a 
+              href="https://plato.stanford.edu/entries/arrows-theorem/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              https://plato.stanford.edu/entries/arrows-theorem/
+            </a>
           </div>
           
           <div>
             <span>Alabama Paradox: </span>
-            <span className="italic">link</span>
+            <a 
+              href="https://www.youtube.com/watch?v=-5gMG408H74" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              https://www.youtube.com/watch?v=-5gMG408H74
+            </a>
           </div>
           
           <div>
