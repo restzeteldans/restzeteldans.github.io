@@ -33,7 +33,7 @@ export function MunicipalityTool() {
         <h2 className="text-orange-600 mb-4">Gemeenteraadsverkiezingen 2026</h2>
         
         <p className="text-gray-700 mb-6">
-          In maart 2026 vinden de gemeenteraadsverkiezingen plaats. Selecteer uw gemeente om te zien hoe de zetelverdeling werkt in uw gemeenteraad, met speciale aandacht voor restzetels.
+          In maart 2026 vinden er gemeenteraadsverkiezingen plaats. Selecteer uw gemeente om te zien hoe de zetelverdeling werkt in uw gemeenteraad, met speciale aandacht voor restzetels.
         </p>
 
         <div className="flex items-start gap-3 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg mb-4">
@@ -41,7 +41,7 @@ export function MunicipalityTool() {
           <div>
             <p className="text-blue-900 mb-1">Wat zijn restzetels?</p>
             <p className="text-blue-800 text-sm">
-              Restzetels zijn zetels die overblijven nadat de eerste verdeling is gedaan. Ze worden toegewezen aan partijen met de grootste "restanten" - het deel van hun stemmen dat nog niet voor een zetel heeft gezorgd.
+              Omdat partijen vaak meer stemmen krijgen dan precies nodig is voor een zetel, blijven er stemmen over, ookwel reststemmen. Hierdoor blijven er ook nog zetels over die verdeeld moeten, de restzetels. Per gemeente verschilt de methode waarmee ze toegewezen worden.
             </p>
           </div>
         </div>
@@ -141,7 +141,7 @@ export function MunicipalityTool() {
                 <p className="text-blue-600">{municipality.turnout}%</p>
               </div>
             </div>
-
+            {/*
             <div className="p-4 bg-gray-50 rounded-lg">
               <p className="text-gray-900 mb-2">Hoe wordt het aantal zetels bepaald?</p>
               <p className="text-gray-700 text-sm">
@@ -163,6 +163,34 @@ export function MunicipalityTool() {
                 {municipality.inhabitants >= 80001 && municipality.inhabitants <= 100000 && ' Gemeenten met 80.001-100.000 inwoners hebben 37 zetels.'}
                 {municipality.inhabitants >= 100001 && municipality.inhabitants <= 200000 && ' Gemeenten met 100.001-200.000 inwoners hebben 39 zetels.'}
                 {municipality.inhabitants >= 200001 && ' Gemeenten met 200.001 inwoners of meer hebben 45 zetels.'}
+              </p>
+            </div>
+            */}
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <p className="text-gray-900 mb-2">De methode</p>
+              <p className="text-gray-700 text-sm">
+                Omdat deze gemeente  
+                {municipality.inhabitants <= 3000 && '9 zetels '}
+                {municipality.inhabitants >= 3001 && municipality.inhabitants <= 6000 && ' 11 zetels '}
+                {municipality.inhabitants >= 6001 && municipality.inhabitants <= 10000 && ' 13 zetels '}
+                {municipality.inhabitants >= 10001 && municipality.inhabitants <= 15000 && ' 15 zetels '}
+                {municipality.inhabitants >= 15001 && municipality.inhabitants <= 20000 && ' 17 zetels '}
+                {municipality.inhabitants >= 20001 && municipality.inhabitants <= 25000 && ' 19 zetels '}
+                {municipality.inhabitants >= 25001 && municipality.inhabitants <= 30000 && ' 21 zetels '}
+                {municipality.inhabitants >= 30001 && municipality.inhabitants <= 35000 && ' 23 zetels '}
+                {municipality.inhabitants >= 35001 && municipality.inhabitants <= 40000 && ' 25 zetels '}
+                {municipality.inhabitants >= 40001 && municipality.inhabitants <= 45000 && ' 27 zetels '}
+                {municipality.inhabitants >= 45001 && municipality.inhabitants <= 50000 && ' 29 zetels '}
+                {municipality.inhabitants >= 50001 && municipality.inhabitants <= 60000 && ' 31 zetels '}
+                {municipality.inhabitants >= 60001 && municipality.inhabitants <= 70000 && ' 33 zetels '}
+                {municipality.inhabitants >= 70001 && municipality.inhabitants <= 80000 && ' 35 zetels '}
+                {municipality.inhabitants >= 80001 && municipality.inhabitants <= 100000 && ' 37 zetels '}
+                {municipality.inhabitants >= 100001 && municipality.inhabitants <= 200000 && ' 39 zetels '}
+                {municipality.inhabitants >= 200001 && '45 zetels '}
+                heeft, word de methode van
+                {municipality.inhabitants <= 20000 && ' de Grootste Overschotten '}
+                {municipality.inhabitants >= 20001 && ' de Grootste Gemiddelden '}
+                gebruikt.
               </p>
             </div>
 

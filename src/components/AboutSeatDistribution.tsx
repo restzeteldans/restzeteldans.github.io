@@ -14,10 +14,13 @@ export function AboutSeatDistribution() {
             <h2 className="text-orange-600 mb-4">Wat zijn restzetels en waarom zijn ze belangrijk?</h2>
             <div className="text-gray-700 space-y-4">
               <p>
-                Er zijn veel verschillende manieren om verkiezingen te houden. Denk bijvoorbeeld aan het bekende Amerikaanse systeem in vergelijking met het Nederlandse systeem. Geen enkel systeem is perfect; elk heeft zijn eigen voor- en nadelen.
+                Nadat Nederland naar de stembus is gegaan en de stemmen zijn geteld, worden er zetels uitgedeeld. Voor het verdelen van zetels bestaan er verschillende systemen. Geen enkel systeem is perfect; elk heeft zijn eigen voor- en nadelen.
               </p>
               <p>
-                Maar hoe goed begrijpen we eigenlijk ons eigen systeem? En vooral: hoe worden de restzetels verdeeld? Met deze tool kun je beter begrijpen hoe restzetels werken en waarom in Nederland juist deze methode wordt gebruikt.
+                Een belangrijk onderdeel van alle systemen is hoe de restzetels verdeeld worden. De vele verschillende methodes doen dit net anders, waardoor dezelfde stemmingsuitslagen tot andere zetelverdelingen kunnen leiden.  
+              </p>
+              <p>
+                Hoe goed begrijpen we eigenlijk ons eigen systeem? Hoe worden de restzetels verdeeld? En vooral: Is dit wel eerlijk? Met deze tool kun je beter begrijpen hoe restzetels werken, wat het verschil is tussen de methodes die in Nederland gebruikt worden, en zelf ontdekken wat (on)eerlijk is. 
               </p>
             </div>
           </div>
@@ -47,8 +50,8 @@ export function AboutSeatDistribution() {
             <Calculator className="w-8 h-8 text-blue-600" />
           </div>
           <div>
-            <h2 className="text-blue-600">Hoe werkt het?</h2>
-            <p className="text-gray-600 mt-2">Kort uitgelegd verloopt de verdeling van zetels in een paar stappen:</p>
+            <h2 className="text-blue-600">Hoe werkt de zetelverdeling?</h2>
+            <p className="text-gray-600 mt-2">Kort uitgelegd verloopt de verdeling van zetels in Nederland in de volgende stappen:</p>
           </div>
         </div>
 
@@ -60,12 +63,12 @@ export function AboutSeatDistribution() {
                 <div className="flex items-center justify-center w-8 h-8 bg-orange-600 text-white rounded-full">
                   1
                 </div>
-                <span>Stemmen uitbrengen</span>
+                <span>Stemmen uitbrengen en tellen</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-gray-700">
-                Heel Nederland brengt zijn stem uit voor de verkiezingen.
+                Heel Nederland brengt zijn stem uit voor de verkiezingen. Na het tellen gaat de uitslag naar de kiesraad, waar ze verder verwerkt worden.
               </p>
             </CardContent>
           </Card>
@@ -81,12 +84,15 @@ export function AboutSeatDistribution() {
               </CardTitle>
             </CardHeader>
             <CardContent>
+              <p className="text-gray-700">
+                Om te kijken hoeveel stemmen er nodig zijn voor 1 zetel, word de kiesdeler bepaald. Dit geld ook als kiesdrempel voor de 2e kamer verkiezingen: Haal je minder stemmen dan de kiesdeler, dan kom je niet in de kamer.
+              </p>
               <p className="text-gray-700 mb-4">
                 De kiesdeler wordt berekend als:
               </p>
               <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                 <p className="text-center">
-                  <span className="text-orange-600">Kiesdeler</span> = <span className="text-blue-600">Totaal aantal geldige stemmen</span> ÷ <span className="text-green-600">Aantal zetels</span>
+                  <span className="text-orange-600">Kiesdeler</span> = <span className="text-blue-600">Totaal aantal geldige en niet-blanco stemmen</span> ÷ <span className="text-green-600">Aantal zetels</span>
                 </p>
               </div>
             </CardContent>
@@ -99,12 +105,12 @@ export function AboutSeatDistribution() {
                 <div className="flex items-center justify-center w-8 h-8 bg-orange-600 text-white rounded-full">
                   3
                 </div>
-                <span>Zetels per partij verdelen</span>
+                <span>Volle zetels verdelen per partij</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-gray-700 mb-4">
-                Zetels per partij worden berekend met:
+                Het aantal volle zetels dat elke partij krijgt word berekend met:
               </p>
               <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
                 <p className="text-center">
@@ -112,7 +118,7 @@ export function AboutSeatDistribution() {
                 </p>
               </div>
               <p className="text-gray-700">
-                Omdat dit vaak geen hele getallen oplevert, blijven er reststemmen over.
+                Omdat het aantal <span className="text-orange-600">zetels per partij</span> vaak geen gehele getallen oplevert, en je niet een fractie van een zetel kan uitdelen, word dit naar beneden afgerond. Zo blijven er echter restjes van een zetel over, de restzetels.
               </p>
             </CardContent>
           </Card>
@@ -130,7 +136,7 @@ export function AboutSeatDistribution() {
             <CardContent>
               <div className="space-y-4">
                 <p className="text-gray-700">
-                  Als er na stap 3 nog zetels over zijn, worden deze toegewezen aan de partijen met de grootste reststemmen. Bij nationale verkiezingen en gemeenten met meer dan 19 zetels gebeurt dit volgens de <span className="text-orange-600">d'Hondt-methode</span>.
+                  De restzetels die na stap 3 over zijn worden verdeeld op basis van het aantal reststemmen. Hier zijn meerdere manieren voor. Bij nationale verkiezingen en gemeenten met meer dan 19 zetels gebeurt dit volgens de methode van de grootste gemiddeldes, ookwel de <span className="text-orange-600">d'Hondt-methode</span>.
                 </p>
                 
                 <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
@@ -152,7 +158,32 @@ export function AboutSeatDistribution() {
                 </div>
 
                 <p className="text-gray-700">
-                  Op deze manier worden de overgebleven zetels eerlijk verdeeld: partijen met meer stemmen hebben de grootste kans op extra zetels, terwijl kleinere partijen ook nog steeds kans maken op een restzetel.
+                  Op deze manier worden de overgebleven zetels zo verdeeld dat de partijen gemiddeld zoveel mogelijk stemmen per zetel hebben. Hierdoor hebben partijen met meer stemmen de grootste kans op extra zetels, terwijl kleinere partijen ook nog steeds kans maken op een restzetel.
+                </p>
+                <p className="text-gray-700">
+                  Voor gemeentes met minder dan 19 zetels, word de methode van <span className="text-orange-600">de grootste overschotten</span> gebruikt.
+                </p>
+
+                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <div className="flex items-start gap-3 mb-4">
+                    <TrendingUp className="w-6 h-6 text-blue-600 mt-1" />
+                    <h4 className="text-blue-900">De methode van de grootste overschotten werkt als volgt:</h4>
+                  </div>
+                  <ol className="list-decimal list-inside space-y-3 text-gray-700 ml-2">
+                    <li>
+                      Voor elke partij wordt gekeken naar het aantal reststemmen
+                    </li>
+                    <li>
+                      De partij met het hoogste aantal reststemmen krijgt als eerste een zetel. Vervolgens krijgt de partij met het op een na hoogste aantal reststemmen een zetel.
+                    </li>
+                    <li>
+                      Dit proces wordt doorgezet totdat alle restzetels zijn verdeeld.
+                    </li>
+                  </ol>
+                </div>
+                
+                <p className="text-gray-700">
+                  Op deze manier worden de overgebleven zetels zo verdeeld dat de partijen die het dichtste bij een nieuwe volle zetel zitten er een krijgen. Hierdoor hebben partijen een even grote kans op extra zetels, onafhankelijk van het aantal zetels dat een partij al heeft.
                 </p>
               </div>
             </CardContent>
@@ -165,9 +196,10 @@ export function AboutSeatDistribution() {
         <div className="flex items-start gap-4">
           <Users className="w-8 h-8 flex-shrink-0" />
           <div>
-            <h3 className="mb-2">Probeer het zelf uit!</h3>
+            <h3 className="mb-2">Zie wat eerlijk is en probeer het zelf uit!</h3>
             <p className="text-white/90">
-              Gebruik de verschillende tabs hierboven om te zien hoe zetelverdeling werkt bij gemeenteraadsverkiezingen, nationale verkiezingen en Europese verkiezingen. Experimenteer met de stemmen en zie direct hoe dit de zetelverdeling beïnvloedt!
+              De verschillende methodes hebben elk hun eigen kwaliteiten, en het valt niet te zeggen of de een eerlijker is dan de ander.
+              Gebruik de verschillende tabs hierboven om meer te weten te komen over de eerlijkheid van de methodes, en om zelf te zien hoe zetelverdeling werkt bij gemeenteraadsverkiezingen, nationale verkiezingen en Europese verkiezingen. Experimenteer met de stemmen en zie direct hoe dit de zetelverdeling beïnvloedt!
             </p>
           </div>
         </div>

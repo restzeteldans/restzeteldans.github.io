@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Users, Calculator, Award, TrendingUp, RotateCcw } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 interface Party {
   name: string;
@@ -252,7 +253,7 @@ export function NationalElections() {
             <h3 className="text-gray-900">2. Kiesdeler</h3>
           </div>
           <p className="text-gray-700">
-            De kiesdeler wordt berekend door het totaal aantal geldige stemmen te delen door 150 (aantal zetels). Dit is het minimum aantal stemmen voor één zetel.
+            De kiesdeler wordt berekend door het totaal aantal geldige en niet-blanco stemmen te delen door 150 (aantal zetels). Dit is het minimum aantal stemmen voor één zetel.
           </p>
         </div>
 
@@ -264,11 +265,51 @@ export function NationalElections() {
             <h3 className="text-gray-900">3. Restzetels</h3>
           </div>
           <p className="text-gray-700">
-            Na de eerste verdeling blijven er vaak restzetels over. Deze worden toegewezen aan partijen met de grootste restanten.
+            Na de eerste verdeling blijven er vaak restzetels over. Deze worden toegewezen door de methode van de grootste gemiddelden.
           </p>
         </div>
       </div>
+      {/* Step 4 */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-8 h-8 bg-orange-600 text-white rounded-full">
+                  4
+                </div>
+                <span>Restzetels verdelen</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <p className="text-gray-700">
+                  De <span className="text-orange-600">d'Hondt-methode</span> word gebruikt.
+                </p>
+                
+                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <div className="flex items-start gap-3 mb-4">
+                    <TrendingUp className="w-6 h-6 text-blue-600 mt-1" />
+                    <h4 className="text-blue-900">De d'Hondt-methode werkt als volgt:</h4>
+                  </div>
+                  <ol className="list-decimal list-inside space-y-3 text-gray-700 ml-2">
+                    <li>
+                      Voor elke partij wordt een quotiënt berekend door het aantal stemmen van de partij te delen door het aantal zetels dat de partij al heeft plus één.
+                    </li>
+                    <li>
+                      De partij met het hoogste quotiënt krijgt de eerstvolgende restzetel.
+                    </li>
+                    <li>
+                      Dit proces wordt herhaald totdat alle restzetels zijn verdeeld.
+                    </li>
+                  </ol>
+                </div>
 
+                <p className="text-gray-700">
+                  Op deze manier worden de overgebleven zetels zo verdeeld dat de partijen gemiddeld zoveel mogelijk stemmen per zetel hebben. Hierdoor hebben partijen met meer stemmen de grootste kans op extra zetels, terwijl kleinere partijen ook nog steeds kans maken op een restzetel.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+      {/*
       <div className="bg-white rounded-lg shadow-md p-8">
         <h3 className="text-gray-900 mb-4">De Kiesdeler Methode</h3>
         
@@ -295,15 +336,17 @@ export function NationalElections() {
           </div>
         </div>
       </div>
-
+      */}
       <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
         <h3 className="text-blue-900 mb-3">Voorbeeld berekening</h3>
         <div className="space-y-2 text-sm">
-          <p className="text-gray-700"><span className="text-gray-900">Totaal stemmen:</span> 10.000.000</p>
-          <p className="text-gray-700"><span className="text-gray-900">Kiesdeler:</span> 10.000.000 / 150 = 66.667 stemmen per zetel</p>
-          <p className="text-gray-700 mt-4"><span className="text-gray-900">Partij A:</span> 2.500.000 stemmen → 2.500.000 / 66.667 = 37,5 → 37 zetels + restant 0,5</p>
-          <p className="text-gray-700"><span className="text-gray-900">Partij B:</span> 1.800.000 stemmen → 1.800.000 / 66.667 = 27,0 → 27 zetels + restant 0,0</p>
-          <p className="text-orange-700 mt-4">Partij A heeft het hoogste restant (0,5) en krijgt daarom een extra restzetel!</p>
+          <p className="text-gray-700"><span className="text-gray-900">Totaal stemmen:</span> 10.564.809</p>
+          <p className="text-gray-700"><span className="text-gray-900">Kiesdeler:</span> 10.564.809 / 150 = 70.432,06 stemmen per zetel</p>
+          <p className="text-gray-700 mt-4"><span className="text-gray-900">Gl-PvdA:</span> 1.352.163 stemmen → 1.352.163 / 70.432,06 = 19,20 → 19 zetels + restant 0,20</p>
+          <p className="text-gray-700"><span className="text-gray-900">Denk:</span> 250.368 stemmen → 250.368 / 70.432,06 = 3,56 → 3 zetels + restant 0,56</p>
+          <p className="text-gray-700 mt-4"><span className="text-gray-900">Quotient Gl-PvdA:</span> 1.352.163 / 20 (19 + 1) = 67.608 </p>
+          <p className="text-gray-700"><span className="text-gray-900">Quotient Denk:</span> 250.368 / 4 (3 + 1) = 62.592 </p>
+          <p className="text-orange-700 mt-4">Gl-PvdA heeft het hoogste quotient en krijgt daarom een extra restzetel!</p>
         </div>
       </div>
 
