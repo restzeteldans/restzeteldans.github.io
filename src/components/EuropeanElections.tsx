@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Users, Calculator, Award, TrendingUp, RotateCcw } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 interface Party {
   name: string;
@@ -18,6 +19,7 @@ interface SeatAllocation {
   totalSeatsSurplus: number;
   totalSeatsAverages: number;
   average: number;
+  quot: number;
 }
 
 const partyColors: { [key: string]: string } = {
@@ -88,6 +90,7 @@ export function EuropeanElections() {
         totalSeatsSurplus: 0,
         totalSeatsAverages: 0,
         average: party.votes,
+        quot: 0,
       }),
     );
 
@@ -120,6 +123,7 @@ export function EuropeanElections() {
 
       tempAllocations.forEach((allocation, index) => {
         const average = allocation.votes / (allocation.seats + 1);
+        allocation.quot = average;
         if (average > maxAverage) {
           maxAverage = average;
           maxIndex = index;
@@ -132,6 +136,7 @@ export function EuropeanElections() {
     allocations.forEach((allocation, index) => {
       allocation.totalSeatsAverages = tempAllocations[index].seats;
       allocation.restSeatAverages = allocation.totalSeatsAverages > allocation.fullSeats;
+      allocation.quot = tempAllocations[index].quot;
     });
 
     return allocations.sort((a, b) => b.totalSeatsAverages - a.totalSeatsAverages);
@@ -155,6 +160,16 @@ export function EuropeanElections() {
     newParties[index].votes = Math.max(0, votes);
     setParties(newParties);
   };
+
+  const updatePercentage = (index: number, percentage: number) => {
+      setParties(prev =>
+        prev.map((p, i) =>
+          i === index
+            ? { ...p, votes: Math.round((percentage / 100) * totalVotes) }
+            : p
+        )
+      );
+    };
 
   const resetVotes = () => {
     setParties(
@@ -223,7 +238,7 @@ export function EuropeanElections() {
         
         <div className="prose max-w-none">
           <p className="text-gray-700">
-            Bij Europese verkiezingen worden 31 Nederlandse zetels verdeeld over de politieke partijen op basis van het aantal stemmen dat zij hebben ontvangen. Ook hier wordt een systeem van evenredige vertegenwoordiging gebruikt.
+            De Europese verkiezingen in Nederland bepalen welke Nederlandse politici in het Europees Parlement komen. Nederland vormt daarbij één landelijke kieskring en kiest 31 Europarlementariërs door middel van  een evenredige vertegenwoordiging. De Nederlandse partijen zijn allemaal onderdeel van een van de acht Europese fracties. De resterende zetels worden, net als de nationale verkiezingen, verdeeld volgens het systeem van de grootste gemiddelden.
           </p>
         </div>
       </div>
@@ -261,11 +276,51 @@ export function EuropeanElections() {
             <h3 className="text-gray-900">3. Restzetels</h3>
           </div>
           <p className="text-gray-700">
-            Na de eerste verdeling blijven er vaak restzetels over. Deze worden toegewezen aan partijen met de grootste restanten.
+            Na de eerste verdeling blijven er vaak restzetels over. Deze worden toegewezen door de methode van de grootste gemiddelden.
           </p>
         </div>
       </div>
+      {/* Step 4 */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-8 h-8 bg-orange-600 text-white rounded-full">
+                  4
+                </div>
+                <span>Restzetels verdelen</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <p className="text-gray-700">
+                  De <span className="text-orange-600">d'Hondt-methode</span> word gebruikt.
+                </p>
+                
+                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <div className="flex items-start gap-3 mb-4">
+                    <TrendingUp className="w-6 h-6 text-blue-600 mt-1" />
+                    <h4 className="text-blue-900">De d'Hondt-methode werkt als volgt:</h4>
+                  </div>
+                  <ol className="list-decimal list-inside space-y-3 text-gray-700 ml-2">
+                    <li>
+                      Voor elke partij wordt een quotiënt berekend door het aantal stemmen van de partij te delen door het aantal zetels dat de partij al heeft plus één.
+                    </li>
+                    <li>
+                      De partij met het hoogste quotiënt krijgt de eerstvolgende restzetel.
+                    </li>
+                    <li>
+                      Dit proces wordt herhaald totdat alle restzetels zijn verdeeld.
+                    </li>
+                  </ol>
+                </div>
 
+                <p className="text-gray-700">
+                  Op deze manier worden de overgebleven zetels zo verdeeld dat de partijen gemiddeld zoveel mogelijk stemmen per zetel hebben. Hierdoor hebben partijen met meer stemmen de grootste kans op extra zetels, terwijl kleinere partijen ook nog steeds kans maken op een restzetel.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+      {/*
       <div className="bg-white rounded-lg shadow-md p-8">
         <h3 className="text-gray-900 mb-4">De Kiesdeler Methode</h3>
         
@@ -292,134 +347,17 @@ export function EuropeanElections() {
           </div>
         </div>
       </div>
-
+      */}
       <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
         <h3 className="text-blue-900 mb-3">Voorbeeld berekening</h3>
         <div className="space-y-2 text-sm">
-          <p className="text-gray-700"><span className="text-gray-900">Totaal stemmen:</span> 5.500.000</p>
-          <p className="text-gray-700"><span className="text-gray-900">Kiesdeler:</span> 5.500.000 / 31 = 177.419 stemmen per zetel</p>
-          <p className="text-gray-700 mt-4"><span className="text-gray-900">Partij A:</span> 1.200.000 stemmen → 1.200.000 / 177.419 = 6,76 → 6 zetels + restant 0,76</p>
-          <p className="text-gray-700"><span className="text-gray-900">Partij B:</span> 900.000 stemmen → 900.000 / 177.419 = 5,07 → 5 zetels + restant 0,07</p>
-          <p className="text-orange-700 mt-4">Partij A heeft het hoogste restant (0,76) en krijgt daarom een extra restzetel!</p>
-        </div>
-      </div>
-
-      {/* Combined Parliament Visualization and Interactive Calculator */}
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <h3 className="text-gray-900 mb-6">Zetelverdeling Europees Parlement (31 Nederlandse zetels) - Interactieve Zetelverdeling</h3>
-        
-        <div className="flex justify-center mb-8">
-          <svg width="800" height="450" viewBox="0 0 800 500" className="max-w-full">
-            {/* Parliament seats */}
-            {parliamentSeats.map((seat, index) => (
-              <rect
-                key={index}
-                x={seat.x - 8}
-                y={seat.y - 8}
-                width="16"
-                height="16"
-                fill={seat.color}
-                stroke="#333"
-                strokeWidth="1"
-                opacity="0.9"
-                rx="2"
-              >
-                <title>{seat.party}</title>
-              </rect>
-            ))}
-            
-            {/* Speaker's position */}
-            <rect
-              x="360"
-              y="420"
-              width="80"
-              height="35"
-              fill="#8B4513"
-              stroke="#333"
-              strokeWidth="2"
-              rx="4"
-            />
-            <text x="400" y="442" textAnchor="middle" fill="white" fontSize="13">
-              Voorzitter
-            </text>
-          </svg>
-        </div>
-
-        {/* Legend */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-          {allocations.map((allocation) => (
-            <div key={allocation.party} className="flex items-center gap-2">
-              <div
-                className="w-4 h-4 rounded"
-                style={{ backgroundColor: allocation.color }}
-              />
-              <span className="text-sm text-gray-700">
-                {allocation.party} ({allocation.totalSeatsAverages})
-              </span>
-            </div>
-          ))}
-        </div>
-
-        <div className="border-t-2 border-gray-200 pt-6">
-          <div className="flex items-center justify-between mb-6">
-            <p className="text-gray-700">
-              Pas de stemmen aan om te zien hoe de zetels worden verdeeld. Let speciaal op de restzetels (oranje gemarkeerd)!
-            </p>
-            <button
-              onClick={resetVotes}
-              className="flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition-colors"
-            >
-              <RotateCcw className="w-4 h-4" />
-              Reset
-            </button>
-          </div>
-
-          <div className="space-y-4 mb-8">
-            {parties.map((party, index) => (
-              <div
-                key={party.name}
-                className="flex items-center gap-4"
-              >
-                <div
-                  className="w-4 h-4 rounded"
-                  style={{ backgroundColor: party.color }}
-                />
-                <label className="w-32 text-gray-700">
-                  {party.name}
-                </label>
-                <input
-                  type="number"
-                  value={party.votes}
-                  onChange={(e) =>
-                    updateVotes(
-                      index,
-                      parseInt(e.target.value) || 0
-                    )
-                  }
-                  className="w-36 px-3 py-2 border border-gray-300 rounded focus:border-orange-500 focus:outline-none"
-                />
-                <span className="text-gray-600 text-sm">
-                  stemmen
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="p-4 bg-gray-50 rounded-lg">
-            <p className="text-gray-900 mb-2">
-              Totaal aantal stemmen:{" "}
-              <span className="text-orange-600">
-                {totalVotes.toLocaleString("nl-NL")}
-              </span>
-            </p>
-            <p className="text-gray-900">
-              Kiesdeler:{" "}
-              <span className="text-orange-600">
-                {electoralQuotient.toFixed(2)}
-              </span>{" "}
-              stemmen per zetel
-            </p>
-          </div>
+          <p className="text-gray-700"><span className="text-gray-900">Totaal stemmen:</span> 6.229.466</p>
+          <p className="text-gray-700"><span className="text-gray-900">Kiesdeler:</span> 6.229.466 / 31 = 200.950,52 stemmen per zetel</p>
+          <p className="text-gray-700 mt-4"><span className="text-gray-900">PVV:</span> 1.057.662 stemmen → 1.057.662 / 200.950,52 = 5,26 → 5 zetels + restant 0,26</p>
+          <p className="text-gray-700"><span className="text-gray-900">PvdD:</span> 281.600 stemmen → 281.600 / 200.950,52 = 1,40 → 1 zetel + restant 0,40</p>
+          <p className="text-gray-700 mt-4"><span className="text-gray-900">Quotient PVV:</span> 1.057.662 / 6 (5 + 1) = 176.277 </p>
+          <p className="text-gray-700"><span className="text-gray-900">Quotient PvdD:</span> 281.600 / 2 (1 + 1) = 140.800 </p>
+          <p className="text-orange-700 mt-4">PVV heeft het hoogste quotient en krijgt daarom een extra restzetel!</p>
         </div>
       </div>
 
@@ -557,36 +495,203 @@ export function EuropeanElections() {
           </table>
         </div>
 
-        {remainingSeats > 0 && (
-          <div className="mt-6 p-4 bg-orange-50 border-2 border-orange-200 rounded-lg">
-            <p className="text-orange-900 mb-2">
-              🎯 Restzetels toewijzing
-            </p>
-            <p className="text-orange-800 text-sm mb-3">
-              Er zijn {remainingSeats} restzetel
-              {remainingSeats > 1 ? "en" : ""} te verdelen. Deze
-              worden toegewezen aan de partijen met de hoogste
-              restanten (Grootste overschot) of aan partijen die de hoogste gemiddelden behalen (Grootste gemiddelde):
-            </p>
-            <div className="space-y-1">
-              {allocations
-                .filter((a) => a.restSeatSurplus)
-                .sort((a, b) => b.remainder - a.remainder)
-                .map((allocation, index) => (
-                  <p
-                    key={allocation.party}
-                    className="text-orange-800 text-sm"
-                  >
-                    {index + 1}.{" "}
-                    <span className="text-orange-900">
-                      {allocation.party}
-                    </span>{" "}
-                    - restant: {allocation.remainder.toLocaleString("nl-NL", {minimumFractionDigits: 3, maximumFractionDigits: 3,})}
-                  </p>
-                ))}
+        <div className="mt-6 grid md:grid-cols-2 gap-4">
+          {remainingSeats > 0 && (
+            <div className="p-4 bg-orange-50 border-2 border-orange-200 rounded-lg">
+              <p className="text-orange-900 mb-2">
+                🎯 Restzetels toewijzing (Grootste Overschotten)
+              </p>
+              <p className="text-orange-800 text-sm mb-3">
+                Er zijn {remainingSeats} restzetel
+                {remainingSeats > 1 ? "en" : ""} te verdelen. Deze
+                worden toegewezen aan de partijen met de hoogste
+                restanten:
+              </p>
+              <div className="space-y-1">
+                {allocations
+                  .filter((a) => a.restSeatSurplus)
+                  .sort((a, b) => b.remainder - a.remainder)
+                  .map((allocation, index) => (
+                    <p
+                      key={allocation.party}
+                      className="text-orange-800 text-sm"
+                    >
+                      {index + 1}.{" "}
+                      <span className="text-orange-900">
+                        {allocation.party}
+                      </span>{" "}
+                      - restant: {allocation.remainder.toLocaleString("nl-NL", {minimumFractionDigits: 3, maximumFractionDigits: 3,})}
+                    </p>
+                  ))}
+              </div>
             </div>
+          )}
+
+          {remainingSeats > 0 && (
+              <div className="p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+                <p className="text-blue-900 mb-2">
+                  🎯 Restzetels toewijzing (Grootste Gemiddelden)
+                </p>
+                <p className="text-blue-800 text-sm mb-3">
+                  Er zijn {remainingSeats} restzetel
+                  {remainingSeats > 1 ? "en" : ""} te verdelen. Deze
+                  worden toegewezen aan de partijen met de hoogste
+                  gemiddelden:
+                </p>
+                <div className="space-y-1">
+                  {allocations
+                    .filter((a) => a.restSeatAverages)
+                    .sort((a, b) => b.quot - a.quot)
+                    .map((allocation, index) => (
+                      <p
+                        key={allocation.party}
+                        className="text-orange-800 text-sm"
+                      >
+                        {index + 1}.{" "}
+                        <span className="text-orange-900">
+                          {allocation.party}
+                        </span>{" "}
+                        - gemiddelden: {allocation.quot.toLocaleString("nl-NL", {minimumFractionDigits: 2, maximumFractionDigits: 2,})}
+                      </p>
+                    ))}
+                </div>
+              </div>
+            )}
+        </div>
+      </div>
+      
+      {/* Combined Parliament Visualization and Interactive Calculator */}
+      <div className="bg-white rounded-lg shadow-md p-8">
+        <h3 className="text-gray-900 mb-6">Zetelverdeling Europees Parlement (31 Nederlandse zetels) - Interactieve Zetelverdeling</h3>
+        
+        <div className="flex justify-center mb-8">
+          <svg width="800" height="450" viewBox="0 0 800 500" className="max-w-full">
+            {/* Parliament seats */}
+            {parliamentSeats.map((seat, index) => (
+              <rect
+                key={index}
+                x={seat.x - 8}
+                y={seat.y - 8}
+                width="16"
+                height="16"
+                fill={seat.color}
+                stroke="#333"
+                strokeWidth="1"
+                opacity="0.9"
+                rx="2"
+              >
+                <title>{seat.party}</title>
+              </rect>
+            ))}
+            
+            {/* Speaker's position */}
+            <rect
+              x="360"
+              y="420"
+              width="80"
+              height="35"
+              fill="#8B4513"
+              stroke="#333"
+              strokeWidth="2"
+              rx="4"
+            />
+            <text x="400" y="442" textAnchor="middle" fill="white" fontSize="13">
+              Voorzitter
+            </text>
+          </svg>
+        </div>
+
+        {/* Legend */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+          {allocations.map((allocation) => (
+            <div key={allocation.party} className="flex items-center gap-2">
+              <div
+                className="w-4 h-4 rounded"
+                style={{ backgroundColor: allocation.color }}
+              />
+              <span className="text-sm text-gray-700">
+                {allocation.party} ({allocation.totalSeatsAverages})
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="border-t-2 border-gray-200 pt-6">
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-gray-700">
+              Pas de stemmen aan om te zien hoe de zetels worden verdeeld. Let speciaal op de restzetels (oranje gemarkeerd)!
+            </p>
+            <button
+              onClick={resetVotes}
+              className="flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition-colors"
+            >
+              <RotateCcw className="w-4 h-4" />
+              Reset
+            </button>
           </div>
-        )}
+
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 mb-8">
+            {parties.map((party, index) => (
+              <div
+                key={party.name}
+                className="flex items-center gap-4"
+              >
+                <div
+                  className="w-4 h-4 rounded"
+                  style={{ backgroundColor: party.color }}
+                />
+                <label className="w-32 text-gray-700">
+                  {party.name}
+                </label>
+                <input
+                  type="number"
+                  value={party.votes}
+                  onChange={(e) =>
+                    updateVotes(
+                      index,
+                      parseInt(e.target.value) || 0
+                    )
+                  }
+                  className="w-36 px-3 py-2 border border-gray-300 rounded focus:border-orange-500 focus:outline-none"
+                />
+                <span className="text-gray-600 text-sm">
+                  stemmen
+                </span>
+                <input
+                type="number"
+                step="0.1"
+                value={totalVotes > 0 ? ((party.votes / totalVotes) * 100).toFixed(1) : 0}
+                onChange={(e) =>
+                  updatePercentage(
+                    index,
+                    parseFloat(e.target.value) || 0,
+                  )
+                }
+                className="w-16 px-2 py-1 text-sm border border-gray-300 rounded focus:border-orange-500 focus:outline-none"
+              />
+              <span className="text-gray-600 text-xs flex-shrink-0">
+                %
+              </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="p-4 bg-gray-50 rounded-lg">
+            <p className="text-gray-900 mb-2">
+              Totaal aantal stemmen:{" "}
+              <span className="text-orange-600">
+                {totalVotes.toLocaleString("nl-NL")}
+              </span>
+            </p>
+            <p className="text-gray-900">
+              Kiesdeler:{" "}
+              <span className="text-orange-600">
+                {electoralQuotient.toLocaleString("nl-NL", {minimumFractionDigits: 1, maximumFractionDigits: 2,})}
+              </span>{" "}
+              stemmen per zetel
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">

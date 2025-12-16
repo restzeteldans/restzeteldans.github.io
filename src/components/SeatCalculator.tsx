@@ -433,8 +433,28 @@ export function SeatCalculator({
                   🎯 Restzetels toewijzing (Grootste Gemiddelden)
                 </p>
                 <p className="text-blue-800 text-sm mb-3">
-                  Bij deze methode worden zetels één voor één toegewezen aan de partij met het hoogste gemiddelde (stemmen gedeeld door zetels+1).
+                  Er zijn {remainingSeatsAverages} restzetel
+                  {remainingSeatsAverages > 1 ? "en" : ""} te verdelen. Deze
+                  worden toegewezen aan de partijen met de hoogste
+                  gemiddelden:
                 </p>
+                <div className="space-y-1">
+                  {allocationsAverages
+                    .filter((a) => a.restSeat)
+                    .sort((a, b) => b.average - a.average)
+                    .map((allocation, index) => (
+                      <p
+                        key={allocation.party}
+                        className="text-orange-800 text-sm"
+                      >
+                        {index + 1}.{" "}
+                        <span className="text-orange-900">
+                          {allocation.party}
+                        </span>{" "}
+                        - gemiddelden: {allocation.average.toLocaleString("nl-NL", {minimumFractionDigits: 2, maximumFractionDigits: 2,})}
+                      </p>
+                    ))}
+                </div>
               </div>
             )}
           </div>
@@ -520,7 +540,7 @@ export function SeatCalculator({
           <p className="text-gray-900">
             Kiesdeler:{" "}
             <span className="text-orange-600">
-              {electoralQuotient.toFixed(2)}
+              {electoralQuotient.toLocaleString("nl-NL", {minimumFractionDigits: 1, maximumFractionDigits: 2,})}
             </span>{" "}
             stemmen per zetel
           </p>
