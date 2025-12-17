@@ -252,7 +252,7 @@ export function EuropeanElections() {
             <h3 className="text-gray-900">1. Stemmen Tellen</h3>
           </div>
           <p className="text-gray-700">
-            Alle stemmen in Nederland worden geteld. Elke partij die minimaal één zetel haalt, krijgt zitplaatsen in het Europees Parlement.
+            Alle stemmen in Nederland worden geteld, en de uitslagen worden gedeeld met en bevestigt door de kiesraad.
           </p>
         </div>
 
@@ -264,7 +264,7 @@ export function EuropeanElections() {
             <h3 className="text-gray-900">2. Kiesdeler</h3>
           </div>
           <p className="text-gray-700">
-            De kiesdeler wordt berekend door het totaal aantal geldige stemmen te delen door 31 (aantal Nederlandse zetels).
+            De kiesdeler wordt berekend door het totaal aantal geldige en niet-blanco stemmen te delen door 31 (aantal Nederlandse zetels in het Europees parlement). Dit is het minimum aantal stemmen voor één zetel. Haal je minder stemmen dan de kiesdeler, dan kom je zelfs met reststemmen niet in aanmerking voor een zetel.
           </p>
         </div>
 
@@ -276,7 +276,7 @@ export function EuropeanElections() {
             <h3 className="text-gray-900">3. Restzetels</h3>
           </div>
           <p className="text-gray-700">
-            Na de eerste verdeling blijven er vaak restzetels over. Deze worden toegewezen door de methode van de grootste gemiddelden.
+            Na de eerste verdeling blijven er vaak reststemmen over, omdat men nooit precies genoeg stemmen heeft voor een zetel. Zo blijven er ook restzetels over, die worden toegewezen door de methode van de grootste gemiddelden.
           </p>
         </div>
       </div>
@@ -355,9 +355,9 @@ export function EuropeanElections() {
           <p className="text-gray-700"><span className="text-gray-900">Kiesdeler:</span> 6.229.466 / 31 = 200.950,52 stemmen per zetel</p>
           <p className="text-gray-700 mt-4"><span className="text-gray-900">PVV:</span> 1.057.662 stemmen → 1.057.662 / 200.950,52 = 5,26 → 5 zetels + restant 0,26</p>
           <p className="text-gray-700"><span className="text-gray-900">PvdD:</span> 281.600 stemmen → 281.600 / 200.950,52 = 1,40 → 1 zetel + restant 0,40</p>
-          <p className="text-gray-700 mt-4"><span className="text-gray-900">Quotient PVV:</span> 1.057.662 / 6 (5 + 1) = 176.277 </p>
-          <p className="text-gray-700"><span className="text-gray-900">Quotient PvdD:</span> 281.600 / 2 (1 + 1) = 140.800 </p>
-          <p className="text-orange-700 mt-4">PVV heeft het hoogste quotient en krijgt daarom een extra restzetel!</p>
+          <p className="text-gray-700 mt-4"><span className="text-gray-900">Quotiënt PVV:</span> 1.057.662 / 6 (5 + 1) = 176.277 </p>
+          <p className="text-gray-700"><span className="text-gray-900">Quotiënt PvdD:</span> 281.600 / 2 (1 + 1) = 140.800 </p>
+          <p className="text-orange-700 mt-4">PVV heeft het hoogste quotiënt en krijgt daarom een extra restzetel!</p>
         </div>
       </div>
 
@@ -503,7 +503,7 @@ export function EuropeanElections() {
               </p>
               <p className="text-orange-800 text-sm mb-3">
                 Er zijn {remainingSeats} restzetel
-                {remainingSeats > 1 ? "en" : ""} te verdelen. Deze
+                {remainingSeats > 1 ? "s" : ""} te verdelen. Deze
                 worden toegewezen aan de partijen met de hoogste
                 restanten:
               </p>
@@ -534,7 +534,7 @@ export function EuropeanElections() {
                 </p>
                 <p className="text-blue-800 text-sm mb-3">
                   Er zijn {remainingSeats} restzetel
-                  {remainingSeats > 1 ? "en" : ""} te verdelen. Deze
+                  {remainingSeats > 1 ? "s" : ""} te verdelen. Deze
                   worden toegewezen aan de partijen met de hoogste
                   gemiddelden:
                 </p>
@@ -693,7 +693,7 @@ export function EuropeanElections() {
           </div>
         </div>
       </div>
-
+      {/*
       <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
         <h3 className="text-blue-900 mb-3">
           💡 Begrijp het systeem
@@ -722,6 +722,7 @@ export function EuropeanElections() {
           </p>
         </div>
       </div>
+      */}
     </div>
   );
 }

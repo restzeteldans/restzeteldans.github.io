@@ -256,7 +256,7 @@ export function NationalElections() {
             <h3 className="text-gray-900">1. Stemmen Tellen</h3>
           </div>
           <p className="text-gray-700">
-            Alle stemmen in Nederland worden geteld. Elke partij die minimaal één zetel haalt, krijgt zitplaatsen in de Tweede Kamer.
+            Alle stemmen in Nederland worden geteld, en de uitslagen worden gedeeld met en bevestigt door de kiesraad.
           </p>
         </div>
 
@@ -268,7 +268,7 @@ export function NationalElections() {
             <h3 className="text-gray-900">2. Kiesdeler</h3>
           </div>
           <p className="text-gray-700">
-            De kiesdeler wordt berekend door het totaal aantal geldige en niet-blanco stemmen te delen door 150 (aantal zetels). Dit is het minimum aantal stemmen voor één zetel.
+            De kiesdeler wordt berekend door het totaal aantal geldige en niet-blanco stemmen te delen door 150 (aantal zetels). Dit is het minimum aantal stemmen voor één zetel. Haal je minder stemmen dan de kiesdeler, dan kom je zelfs met reststemmen niet in aanmerking voor een zetel.
           </p>
         </div>
 
@@ -280,7 +280,7 @@ export function NationalElections() {
             <h3 className="text-gray-900">3. Restzetels</h3>
           </div>
           <p className="text-gray-700">
-            Na de eerste verdeling blijven er vaak restzetels over. Deze worden toegewezen door de methode van de grootste gemiddelden.
+            Na de eerste verdeling blijven er vaak reststemmen over, omdat men nooit precies genoeg stemmen heeft voor een zetel. Zo blijven er ook restzetels over, die worden toegewezen door de methode van de grootste gemiddelden.
           </p>
         </div>
       </div>
@@ -297,7 +297,7 @@ export function NationalElections() {
             <CardContent>
               <div className="space-y-4">
                 <p className="text-gray-700">
-                  De <span className="text-orange-600">d'Hondt-methode</span> word gebruikt.
+                  De <span className="text-orange-600">methode van de grootste gemiddelden</span> word gebruikt, ookwel de <span className="text-orange-600">d'Hondt-methode</span>.
                 </p>
                 
                 <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
@@ -359,9 +359,9 @@ export function NationalElections() {
           <p className="text-gray-700"><span className="text-gray-900">Kiesdeler:</span> 10.564.809 / 150 = 70.432,06 stemmen per zetel</p>
           <p className="text-gray-700 mt-4"><span className="text-gray-900">Gl-PvdA:</span> 1.352.163 stemmen → 1.352.163 / 70.432,06 = 19,20 → 19 zetels + restant 0,20</p>
           <p className="text-gray-700"><span className="text-gray-900">Denk:</span> 250.368 stemmen → 250.368 / 70.432,06 = 3,56 → 3 zetels + restant 0,56</p>
-          <p className="text-gray-700 mt-4"><span className="text-gray-900">Quotient Gl-PvdA:</span> 1.352.163 / 20 (19 + 1) = 67.608 </p>
-          <p className="text-gray-700"><span className="text-gray-900">Quotient Denk:</span> 250.368 / 4 (3 + 1) = 62.592 </p>
-          <p className="text-orange-700 mt-4">Gl-PvdA heeft het hoogste quotient en krijgt daarom een extra restzetel!</p>
+          <p className="text-gray-700 mt-4"><span className="text-gray-900">Quotiënt Gl-PvdA:</span> 1.352.163 / 20 (19 + 1) = 67.608 </p>
+          <p className="text-gray-700"><span className="text-gray-900">Quotiënt Denk:</span> 250.368 / 4 (3 + 1) = 62.592 </p>
+          <p className="text-orange-700 mt-4">Gl-PvdA heeft het hoogste quotiënt en krijgt daarom een extra restzetel!</p>
         </div>
       </div>
 
@@ -507,7 +507,7 @@ export function NationalElections() {
               </p>
               <p className="text-orange-800 text-sm mb-3">
                 Er zijn {remainingSeats} restzetel
-                {remainingSeats > 1 ? "en" : ""} te verdelen. Deze
+                {remainingSeats > 1 ? "s" : ""} te verdelen. Deze
                 worden toegewezen aan de partijen met de hoogste
                 restanten:
               </p>
@@ -538,7 +538,7 @@ export function NationalElections() {
                 </p>
                 <p className="text-blue-800 text-sm mb-3">
                   Er zijn {remainingSeats} restzetel
-                  {remainingSeats > 1 ? "en" : ""} te verdelen. Deze
+                  {remainingSeats > 1 ? "s" : ""} te verdelen. Deze
                   worden toegewezen aan de partijen met de hoogste
                   gemiddelden:
                 </p>
@@ -697,7 +697,7 @@ export function NationalElections() {
           </div>
         </div>
       </div>
-
+      {/*
       <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
         <h3 className="text-blue-900 mb-3">
           💡 Begrijp het systeem
@@ -726,6 +726,7 @@ export function NationalElections() {
           </p>
         </div>
       </div>
+      */}
     </div>
   );
 }

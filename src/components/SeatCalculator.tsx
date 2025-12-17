@@ -547,7 +547,7 @@ export function SeatCalculator({
         </div>
       </div>
 
-      {/* Comparison */}
+      {/* Comparison 
       <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
         <h3 className="text-purple-900 mb-4">
           🔍 Vergelijking van de methoden
@@ -587,7 +587,7 @@ export function SeatCalculator({
           </div>
         )}
       </div>
-
+      */}
       <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
         <h3 className="text-blue-900 mb-3">
           💡 Begrijp de systemen

@@ -118,7 +118,7 @@ export function AboutSeatDistribution() {
                 </p>
               </div>
               <p className="text-gray-700">
-                Omdat het aantal <span className="text-orange-600">zetels per partij</span> vaak geen gehele getallen oplevert, en je niet een fractie van een zetel kan uitdelen, word dit naar beneden afgerond. Zo blijven er echter restjes van een zetel over, de restzetels.
+                Omdat het aantal <span className="text-orange-600">zetels per partij</span> vaak geen gehele getallen oplevert, en je niet een stukje van een zetel kan uitdelen, word dit naar beneden afgerond. Zo blijven er echter restjes van een zetel over, de restzetels.
               </p>
             </CardContent>
           </Card>
@@ -136,7 +136,7 @@ export function AboutSeatDistribution() {
             <CardContent>
               <div className="space-y-4">
                 <p className="text-gray-700">
-                  De restzetels die na stap 3 over zijn worden verdeeld op basis van het aantal reststemmen. Hier zijn meerdere manieren voor. Bij nationale verkiezingen en gemeenten met meer dan 19 zetels gebeurt dit volgens de methode van de grootste gemiddeldes, ookwel de <span className="text-orange-600">d'Hondt-methode</span>.
+                  De restzetels die na stap 3 over zijn worden verdeeld op basis van het aantal reststemmen. Hier zijn meerdere manieren voor. Bij nationale verkiezingen en gemeenten met 19 zetels of meer gebeurt dit volgens de methode van <span className="text-orange-600">de grootste gemiddelden</span>, ookwel de <span className="text-orange-600">d'Hondt-methode</span>.
                 </p>
                 
                 <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
@@ -161,7 +161,7 @@ export function AboutSeatDistribution() {
                   Op deze manier worden de overgebleven zetels zo verdeeld dat de partijen gemiddeld zoveel mogelijk stemmen per zetel hebben. Hierdoor hebben partijen met meer stemmen de grootste kans op extra zetels, terwijl kleinere partijen ook nog steeds kans maken op een restzetel.
                 </p>
                 <p className="text-gray-700">
-                  Voor gemeentes met minder dan 19 zetels, word de methode van <span className="text-orange-600">de grootste overschotten</span> gebruikt.
+                  Voor gemeentes met minder dan 19 zetels, word de methode van <span className="text-orange-600">de grootste overschotten</span> gebruikt, ookwel de <span className="text-orange-600">Hare-Niemeyer</span> methode.
                 </p>
 
                 <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
