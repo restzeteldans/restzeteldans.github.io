@@ -14,13 +14,13 @@ export function MethodologyComparison() {
             <h2 className="text-orange-600 mb-4">Eerlijkheid in zetelverdeling</h2>
             <div className="text-gray-700 space-y-4">
               <p>
-                Wanneer stemmen worden omgezet in zetels, gebruiken landen verschillende methoden om dit zo eerlijk mogelijk te doen. In Nederland werken we volgens een systeem van evenredige vertegenwoordiging, waarbij het totaal aantal stemmen vertaald wordt naar zetels in de Tweede Kamer of gemeenteraad. Hierbij worden eerst de zogenoemde volle zetels toegekend op basis van een kiesdeler; het overschot aan stemmen dat niet genoeg is voor een volle zetel levert restzetels op.
+                Wanneer stemmen worden omgezet in zetels, gebruiken landen verschillende methoden om dit te doen. In Nederland werken we volgens een systeem van evenredige vertegenwoordiging, waarbij het totaal aantal stemmen evenredig vertaald wordt naar zetels in de Tweede Kamer of gemeenteraad. Hierbij worden eerst de zogenoemde volle zetels toegekend op basis van een kiesdeler; het overschot aan stemmen dat niet genoeg is voor een volle zetel levert restzetels op. Hier zijn meerdere methodes voor.
               </p>
               <p>
-                Maar wat eerlijk is, hangt af van de gekozen methode. In Nederland bestaan twee manieren om restzetels te verdelen: de methode van de grootste overschotten (voor gemeenten met minder dan 19 zetels) en de methode van de grootste gemiddelden voor grotere boven de 19 zetels, nationale en Europese verkiezingen.
+                Wat eerlijk is, hangt onder andere af van de gekozen methode. Er zijn veel methodes die net verschillen, zoals de Hamilton-methode, Webster-methode, D'Hondt-methode en meer. In Nederland worden twee manieren om restzetels te verdelen gebruikt: de methode van de grootste overschotten (voor gemeenten met minder dan 19 zetels) en de methode van de grootste gemiddelden, voor gemeenten met 19 zetels of meer en voor de nationale en Europese verkiezingen. Beiden methoden hebben hun eigen voor- en nadelen.
               </p>
               <p>
-                Er is geen perfect stemsysteem: elk systeem maakt compromissen. De keuze voor een bepaalde methode is dus politiek, ethisch en moreel van aard: wat telt zwaarder, eenvoud en transparantie, of proportionele rechtvaardigheid en stabiliteit?
+                Er is geen perfect stemsysteem: elk systeem maakt compromissen, en kan leiden tot verdelingen die oneerlijk lijken. De keuze voor een bepaalde methode is politiek, ethisch en moreel van aard: wat telt zwaarder, eenvoud en transparantie, of proportionele rechtvaardigheid en stabiliteit? Vergelijk hieronder de 2 methoden die in Nederland gebruikt worden, en ontdek waarom geen enkel systeem volledig eerlijk kan zijn.
               </p>
             </div>
           </div>
@@ -29,7 +29,7 @@ export function MethodologyComparison() {
 
       {/* Comparison Table */}
       <div className="bg-white rounded-lg shadow-sm p-8">
-        <h2 className="text-gray-900 mb-6">Dit zijn de twee methodes die we gebruiken in Nederland met hun voor en nadelen:</h2>
+        <h2 className="text-gray-900 mb-6">Dit zijn de twee methodes die we gebruiken in Nederland, elk met hun eigen voor- en nadelen:</h2>
         
         <div className="grid md:grid-cols-2 gap-6">
           {/* Left Column: Methode van grootste gemiddelden */}
@@ -59,7 +59,7 @@ export function MethodologyComparison() {
 
               <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
                 <p className="text-gray-700">
-                  De methode wijkt soms af van de exacte verhouding die uit een zuivere quotabenadering zou volgen, en de verdeling van zetels is minder representatief voor de uitslag. Partijen halen zo soms meer dan 1 restzetel
+                  De methode wijkt soms af van de exacte verhouding die uit een zuivere quotabenadering zou volgen, en de verdeling van zetels is minder representatief voor de uitslag. Partijen halen zo soms meer dan 1 restzetel, waardoor een coalitie met een minderheid van de stemmen een meerderheid van de zetels kan halen. Dit was het geval in de kabinetten Rutte I, III en IV.
                 </p>
               </div>
             </div>
@@ -112,6 +112,41 @@ export function MethodologyComparison() {
         </div>
       </div>
 
+      {/* Arrow's Theorem */}
+      <div className="bg-white rounded-lg shadow-sm p-8">
+        <div className="flex items-start gap-4 mb-6">
+          <div className="p-3 bg-blue-100 rounded-lg">
+            <BookOpen className="w-8 h-8 text-blue-600" />
+          </div>
+          <div>
+            <h2 className="text-blue-600">Waarom geen perfect systeem bestaat: Arrow's theorem & paradoxen</h2>
+          </div>
+        </div>
+
+        <div className="space-y-4 text-gray-700">
+          <p>
+            Het idee dat een ideaal stemsysteem bestaat dat 'gerechtigheid' altijd waarborgt, klinkt logisch en fijn, maar is wiskundig gezien onmogelijk. Dat is beschreven in "Arrow's Impossibility Theorem": Geen enkel stemsysteem kan voldoen aan een reeks van eerlijkheidscriteria zonder in conflict te komen met andere criteria. Met andere woorden: ieder stemsysteem moet ergens een compromis sluiten; een partij kan het gevoel krijgen dat haar stem minder recht doet aan de intentie van de kiezer of dat de volgorde van voorkeuren wiskundig paradoxaal wordt.
+          </p>
+
+          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <p className="text-gray-700 mb-3">
+              Voor elk stemsysteem kunnen we stellen dat we aan bepaalde basale criteria willen voldoen die allemaal eerlijk lijken:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-4">
+              <li>Pareto efficiëntie: Als elke stemmer liever partij A heeft dan partij B, dan moet ook uit de stemming volgen dat men liever partij A heeft dan partij B.</li>
+              <li>Geen dictatuur: Het mag niet zo zijn dat 1 stemmer altijd de uitkomst kan bepalen, en dat 1 stemmer altijd zijn wil kan krijgen.</li>
+              <li>Onafhankelijkheid van irrelevante alternatieven: Als men stemt of ze partij A of B prefereren, dan mag het bestaan van een partij C niet de uitslag aanpassen.</li>
+              <li>Ongelimiteerde keuze: Iedere uitslag moet (in theorie) mogelijk zijn, je kan niet een uitslag verbieden omdat het onhandig is.</li>
+              <li>Transitiviteit: Als iedereen partij A liever heeft dan partij B, en partij B liever heeft dan partij C, dan heeft iedereen ook partij A liever dan partij C.</li>
+            </ul>
+
+            <p className="text-gray-700 mb-3">
+              Volgens Arrow's Impossibility Theorem kan geen enkel systeem aan al deze vereisten voldoen. Elk mogelijk systeem gaat tegen een of meerdere van deze criteria in, of veroorzaakt bepaalde paradoxen. Je zal dus zelf moeten kiezen welke je belangrijker vindt.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Concrete Paradoxes */}
       <div className="bg-white rounded-lg shadow-sm p-8">
         <div className="flex items-start gap-4 mb-6">
@@ -131,13 +166,13 @@ export function MethodologyComparison() {
             <CardContent>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Stel je voor dat een gemeenteraad eerst 10 zetels heeft en daarna hypothetisch 11. In sommige quotamethoden, zoals de methode van de grootste overschotten, kan een partij dan minder zetels krijgen ondanks gelijkblijvende stemverhoudingen een onlogisch resultaat dat paradoxaal lijkt. Dit werd ontdekt in de context van de Amerikaanse congresverdeling in 1880, toen berekeningen van de volkstelling aantoonden dat als het totale aantal zetels in het Huis van Afgevaardigden hypothetisch zou worden verhoogd van 299 naar 300, dit het aantal zetels van Alabama zou verminderen van 8 naar 7.
+                  Stel je voor dat een gemeenteraad eerst 10 zetels heeft en daarna hypothetisch 11. In sommige quotamethoden, zoals de methode van de grootste overschotten, kan een partij dan minder zetels krijgen ondanks gelijkblijvende stemverhoudingen, een onlogisch en paradoxaal resultaat. Dit werd ontdekt in de context van de Amerikaanse congresverdeling in 1880, toen berekeningen van de volkstelling aantoonden dat als het totale aantal zetels in het Huis van Afgevaardigden hypothetisch zou worden verhoogd van 299 naar 300, dit het aantal zetels van Alabama zou verminderen van 8 naar 7.
                 </p>
                 
                 <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                   <h4 className="text-amber-900 mb-2">Voorbeeld binnen Nederland</h4>
                   <p className="text-amber-800 italic">
-                    Bij de gemeenteraadsverkiezingen in 1982 waren er 13 zetels te verdelen. De PCG behaalde 421 stemmen, en haalde daarmee 1,07 zetels. Hiermee haalde ze 1 volle zetel en 1 restzetel. De volgende kleinste partij, de PAK, haalde met 0.66 zetels net niet de kiesdrempel van 0.75 om in aanmerking voor een restzetel te komen, hoewel ze meer reststemmen hadden. Had de gemeente echter 15 zetels gehad, dan had de PCG 1,23 zetels gehaald. Maar omdat dan de volgende kleinste partij, de PAK, 0.765 zetels zouden hebben gehaald, hadden ze net genoeg voor de kiesdrempel van 0.75 om in aanmerking te komen voor een restzetel. Hierdoor ging een restzetel naar PAK en niet PCG, die met minder zetels in een grotere gemeenteraad kwam.  
+                    Bij de gemeenteraadsverkiezingen van Zierikzee in 1982 waren er 13 zetels te verdelen. De PCG behaalde 421 stemmen, en haalde daarmee 1,07 zetels. Hiermee haalde ze 1 volle zetel en 1 restzetel. De volgende kleinste partij, de PAK, haalde met 0.66 zetels net niet de kiesdrempel van 0.75 om in aanmerking voor een restzetel te komen, hoewel ze meer reststemmen hadden. Had de gemeente echter 15 zetels gehad, dan had de PCG 1,23 zetels gehaald. Maar omdat dan de volgende kleinste partij, de PAK, 0.765 zetels zouden hebben gehaald, hadden ze net genoeg voor de kiesdrempel van 0.75 om in aanmerking te komen voor een restzetel. Hierdoor ging een restzetel naar PAK en niet PCG, die met minder zetels in een grotere gemeenteraad kwam.  
                   </p>
                 </div>
               </div>
@@ -150,14 +185,14 @@ export function MethodologyComparison() {
             <CardContent>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Stel je voor dat een partij A evenveel stemmen heeft gehaald als bij de vorige verkiezingen, en een partij B er een hoop verloren is. Dan zou het logisch zijn als partij B een zetel verliest, en niet partij A. Toch kan dit bij de methode van grootste overschotten gebeuren als het totale aantal stemmers afneemt.
+                  Stel je voor dat een partij A evenveel stemmen heeft gehaald als bij de vorige verkiezingen, en een partij B er een hoop heeft verloren. Dan zou het logisch zijn als partij B een zetel verliest, en niet partij A. Toch kan dit bij de methode van grootste overschotten gebeuren als het totale aantal stemmers afneemt.
                 </p>
                 
                 <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                   <h4 className="text-amber-900 mb-2">Voorbeeld binnen Nederland</h4>
                   <p className="text-amber-800 italic">
-                    Hoewel deze paradox in nederland niet heeft plaatsgevonden, kunnen we wel een theoretisch voorbeeld geven van Schiermonnikoog, gebaseerd op een lezing van Henk Don uit 2023.
-                    Zie de verkiezingsuitslag in de tabel hierdonder. Hoewel SAMEN evenveel stemmen heeft gehaald,en Ons Belang zetels heeft verloren, heeft juist SAMEN een zetel verloren. Dit kan omdat het totaal aantal stemmers afnam, en wel volledig bij Ons Belang. Omdat het restant van Ons Belang alsnog hoger uitkomt dan SAMEN, en Schiermonnikoogs Belang kwa restant omhoog gaat, krijgt SAMEN geen restzetel meer, maar juist Schiermonnikoogs Belang, die er eerst geen had.
+                    Hoewel deze paradox in Nederland niet heeft plaatsgevonden, kunnen we wel een theoretisch voorbeeld geven van Schiermonnikoog, gebaseerd op een lezing van Henk Don uit 2023.
+                    Zie de verkiezingsuitslag in de tabel hierdonder. Hoewel SAMEN evenveel stemmen heeft gehaald, en Ons Belang stemmen heeft verloren, heeft juist SAMEN een zetel verloren. Dit kan omdat het totaal aantal stemmers afnam, en wel volledig bij Ons Belang. Omdat het restant van Ons Belang alsnog hoger uitkomt dan SAMEN, en Schiermonnikoogs Belang kwa restant omhoog gaat, krijgt SAMEN geen restzetel meer, maar juist Schiermonnikoogs Belang, die er eerst geen had.
                   </p>
                   <table className="paradox-tabel">
                     <thead>
@@ -225,14 +260,14 @@ export function MethodologyComparison() {
             <CardContent>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Bij sommige verkiezingen kunnen partijen ervoor kiezen om samen een lijst te vormen. Je stemt dan op de lijstverbinding, en de zetels worden verdeeld over de 2 partijen die eraan meedoen. Dit kan er echter voor zorgen dat het aantal restzetels veranderd, en men geen restzetl krijgt.
-                  Stel dat partijen A en B los de verkiezingen in gaan, en elk 1,6 zetel halen. Doordat ze een grote rest van 0,6 halen, krijgen ze elke een restzetel, en hebben ze in totaal dus 4 zetels. Zouden ze een lijstverbinding aangegaan zijn, dan hadden ze 3,2 zetel gehaald. Nu is de rest maar 0,2, wat wellicht te weinig is voor een restzetel, waardoor ze samen maar 3 zetels halen. Zo eindigen ze na een lijstcombinatie met 3 zetels in plaats van 4, hoewel ze dezelfde hoeveelheid stemmen halen. 
+                  Bij sommige verkiezingen kunnen partijen ervoor kiezen om samen een lijst te vormen. Je stemt dan op de lijstverbinding, en de zetels worden verdeeld over de 2 partijen die eraan meedoen. Dit kan er echter voor zorgen dat het aantal restzetels veranderdt, en men geen restzetel krijgt.
+                  Stel dat partijen A en B los de verkiezingen in gaan, en elk 1,6 zetel halen. Doordat ze een grote rest van 0,6 halen, krijgen ze elke een restzetel, en hebben ze in totaal dus 4 zetels. Zouden ze een lijstverbinding aangegaan zijn en evenveel stemmen hebben gekregen, dan hadden ze 3,2 zetels gehaald. Nu is de rest maar 0,2, wat wellicht te weinig is voor een restzetel, waardoor ze samen maar 3 zetels halen. Zo eindigen ze na een lijstcombinatie met 3 zetels in plaats van 4, hoewel ze dezelfde hoeveelheid stemmen halen. 
                 </p>
                 
                 <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                   <h4 className="text-amber-900 mb-2">Voorbeeld binnen Nederland</h4>
                   <p className="text-amber-800 italic">
-                    Lijstverbindingen kunnen niet alleen nadelig uitpakken bij het systeem van grootste overschotten, maar ook voordelig bij het systeem van grootste gemiddelden. Zo kreeg in 2014 bij de Europese Verkiezingen D66 15,48% van de stemmen en het CDA 15,18%. Toch gingen er uiteindelijk 5 zetels naar het CDA en maar 4 naar D66. Omdat CDA namelijk een lijstverbinding was aangegaan met Christenunie-SGP, hadden ze in totaal meer stemmen, en hadden ze een hoger gemiddeld aantal stemmen per zetel. Omdat de methode van grootste gemiddelden handig uitpakt voor grotere partijen, ging de zetel dus naar het CDA en niet naar D66.
+                    Lijstverbindingen kunnen niet alleen nadelig uitpakken bij het systeem van grootste overschotten, maar ook voordelig bij het systeem van grootste gemiddelden. Zo kreeg in 2014 bij de Europese Verkiezingen D66 15,48 % van de stemmen en het CDA 15,18 %. Toch gingen er uiteindelijk 5 zetels naar het CDA en maar 4 naar D66. Omdat CDA namelijk een lijstverbinding was aangegaan met Christenunie-SGP, hadden ze in totaal meer stemmen, en hadden ze een hoger gemiddeld aantal stemmen per zetel. Omdat de methode van grootste gemiddelden handig uitpakt voor grotere partijen, ging de zetel dus naar het CDA en niet naar D66.
                   </p>
                 </div>
               </div>
@@ -241,34 +276,7 @@ export function MethodologyComparison() {
         </div>
       </div>
 
-      {/* Arrow's Theorem */}
-      <div className="bg-white rounded-lg shadow-sm p-8">
-        <div className="flex items-start gap-4 mb-6">
-          <div className="p-3 bg-blue-100 rounded-lg">
-            <BookOpen className="w-8 h-8 text-blue-600" />
-          </div>
-          <div>
-            <h2 className="text-blue-600">Waarom geen perfect systeem bestaat: Arrow's theorem & paradoxen</h2>
-          </div>
-        </div>
-
-        <div className="space-y-4 text-gray-700">
-          <p>
-            Het idee dat een ideaal stemsysteem bestaat dat 'gerechtigheid' altijd waarborgt, klinkt logisch, maar wiskundig gezien is dat onmogelijk. Volgens Arrow's Impossibility Theorem kan geen enkel stemsysteem voldoen aan een reeks van eerlijkheidscriteria (zoals onafhankelijkheid van irrelevante alternatieven en Pareto-efficiëntie) zonder in conflict te komen met andere criteria. Met andere woorden: ieder stemsysteem moet ergens een compromis sluiten: een partij kan het gevoel krijgen dat haar stem minder recht doet aan de intentie van de kiezer of dat de volgorde van voorkeuren wiskundig paradoxaal wordt.
-          </p>
-
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <p className="text-gray-700 mb-3">
-              In de context van restzetels betekent dit dat we moeten kiezen welke vorm van eerlijkheid we willen prioriteren:
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-700 ml-2">
-              <li>Zo dicht mogelijk bij de exacte proportie van stemmen,</li>
-              <li>Of stabiliteit en vermijding van paradoxen,</li>
-              <li>Of juist maximale eenvoud en transparantie voor kiezers.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      
 
       {/* What this means for voters */}
       <div className="bg-white rounded-lg shadow-sm p-8">
@@ -283,7 +291,7 @@ export function MethodologyComparison() {
 
         <div className="text-gray-700 space-y-4">
           <p>
-            De methoden zijn niet willekeurig gekozen; ze zijn het resultaat van lange politieke en maatschappelijke discussies. Geen methode is perfect, maar ieder systeem is ontworpen met inzicht in de praktische gevolgen voor representatie en besluitvorming. Door de mechanismen te begrijpen, krijg je grip op waarom bepaalde partijen meer of minder zetels krijgen en hoe zelfs kleine rekensystemen politiek effect kunnen hebben, bijvoorbeeld op de samenstelling van een regering of de stem van kleinere partijen in het parlement.
+            De methoden zijn niet willekeurig gekozen, maar het resultaat van lange politieke en maatschappelijke discussies. Geen methode is perfect, maar wel is ieder systeem ontworpen met inzicht in de praktische gevolgen voor representatie en besluitvorming. Zonder de redenaties achter de methodes te weten kan het stemsysteem oneerlijk aanvoelen, en de onvrede met de politiek toenemen. Door de mechanismen te begrijpen, krijg je grip op waarom bepaalde partijen meer of minder zetels krijgen en hoe zelfs kleine rekensystemen politiek effect kunnen hebben, bijvoorbeeld op de samenstelling van een regering of de stem van kleinere partijen in het parlement.
           </p>
         </div>
       </div>
@@ -355,6 +363,18 @@ export function MethodologyComparison() {
               className="underline hover:text-white"
             >
               https://www.nieuwarchief.nl/serie5/pdf/naw5-2024-25-3-140.pdf
+            </a>
+          </div>
+
+          <div>
+            <span>Platform Wiskunde Nederland: </span>
+            <a 
+              href="https://platformwiskunde.nl/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              https://platformwiskunde.nl/
             </a>
           </div>
         </div>
