@@ -172,7 +172,7 @@ export function MethodologyComparison() {
                 <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                   <h4 className="text-amber-900 mb-2">Voorbeeld binnen Nederland</h4>
                   <p className="text-amber-800 italic">
-                    Bij de gemeenteraadsverkiezingen van Zierikzee in 1982 waren er 13 zetels te verdelen. De PCG behaalde 421 stemmen, en haalde daarmee 1,07 zetels. Hiermee haalde ze 1 volle zetel en 1 restzetel. De volgende kleinste partij, de PAK, haalde met 0.66 zetels net niet de kiesdrempel van 0.75 om in aanmerking voor een restzetel te komen, hoewel ze meer reststemmen hadden. Had de gemeente echter 15 zetels gehad, dan had de PCG 1,23 zetels gehaald. Maar omdat dan de volgende kleinste partij, de PAK, 0.765 zetels zouden hebben gehaald, hadden ze net genoeg voor de kiesdrempel van 0.75 om in aanmerking te komen voor een restzetel. Hierdoor ging een restzetel naar PAK en niet PCG, die met minder zetels in een grotere gemeenteraad kwam.  
+                    Bij de gemeenteraadsverkiezingen van Zierikzee in 1982 waren er 13 zetels te verdelen. De PCG behaalde 421 stemmen, en haalde daarmee 1,07 zetels. Hiermee haalde ze 1 volle zetel en 1 restzetel. De volgende kleinste partij, de PAK, haalde met 0,66 zetels net niet de kiesdrempel van 0,75 om in aanmerking voor een restzetel te komen, hoewel ze meer reststemmen hadden. Had de gemeente echter 15 zetels gehad, dan had de PCG 1,23 zetels gehaald. Maar omdat dan de volgende kleinste partij, de PAK, 0,765 zetels zouden hebben gehaald, hadden ze net genoeg voor de kiesdrempel van 0,75 om in aanmerking te komen voor een restzetel. Hierdoor ging een restzetel naar PAK en niet PCG, die met minder zetels in een grotere gemeenteraad kwam.  
                   </p>
                 </div>
               </div>
@@ -194,7 +194,7 @@ export function MethodologyComparison() {
                     Hoewel deze paradox in Nederland niet heeft plaatsgevonden, kunnen we wel een theoretisch voorbeeld geven van Schiermonnikoog, gebaseerd op een lezing van Henk Don uit 2023.
                     Zie de verkiezingsuitslag in de tabel hierdonder. Hoewel SAMEN evenveel stemmen heeft gehaald, en Ons Belang stemmen heeft verloren, heeft juist SAMEN een zetel verloren. Dit kan omdat het totaal aantal stemmers afnam, en wel volledig bij Ons Belang. Omdat het restant van Ons Belang alsnog hoger uitkomt dan SAMEN, en Schiermonnikoogs Belang kwa restant omhoog gaat, krijgt SAMEN geen restzetel meer, maar juist Schiermonnikoogs Belang, die er eerst geen had.
                   </p>
-                  <table className="paradox-tabel">
+                  <table width="800" className="paradox-tabel">
                     <thead>
                       <tr>
                         <th rowSpan={2}>Schiermonnikoog</th>
@@ -202,12 +202,12 @@ export function MethodologyComparison() {
                         <th colSpan={3}>2026</th>
                       </tr>
                       <tr>
-                        <th>stemmen</th>
-                        <th>x<sub>i</sub></th>
-                        <th>z<sub>i</sub></th>
-                        <th>stemmen</th>
-                        <th>x<sub>i</sub></th>
-                        <th>z<sub>i</sub></th>
+                        <td><b>stemmen</b></td>
+                        <td><b>totaal</b></td>
+                        <td><b>zetels</b></td>
+                        <td><b>stemmen</b></td>
+                        <td><b>totaal</b></td>
+                        <td><b>zetels</b></td>
                       </tr>
                     </thead>
                     <tbody>
@@ -267,7 +267,7 @@ export function MethodologyComparison() {
                 <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                   <h4 className="text-amber-900 mb-2">Voorbeeld binnen Nederland</h4>
                   <p className="text-amber-800 italic">
-                    Lijstverbindingen kunnen niet alleen nadelig uitpakken bij het systeem van grootste overschotten, maar ook voordelig bij het systeem van grootste gemiddelden. Zo kreeg in 2014 bij de Europese Verkiezingen D66 15,48 % van de stemmen en het CDA 15,18 %. Toch gingen er uiteindelijk 5 zetels naar het CDA en maar 4 naar D66. Omdat CDA namelijk een lijstverbinding was aangegaan met Christenunie-SGP, hadden ze in totaal meer stemmen, en hadden ze een hoger gemiddeld aantal stemmen per zetel. Omdat de methode van grootste gemiddelden handig uitpakt voor grotere partijen, ging de zetel dus naar het CDA en niet naar D66.
+                    Lijstverbindingen kunnen niet alleen nadelig uitpakken bij het systeem van grootste overschotten, maar ook voordelig bij het systeem van grootste gemiddelden. Zo kreeg in 2014 bij de Europese Verkiezingen D66 15,48% van de stemmen en het CDA 15,18%. Toch gingen er uiteindelijk 5 zetels naar het CDA en maar 4 naar D66. Omdat CDA namelijk een lijstverbinding was aangegaan met Christenunie-SGP, hadden ze in totaal meer stemmen, en hadden ze een hoger gemiddeld aantal stemmen per zetel. Omdat de methode van grootste gemiddelden handig uitpakt voor grotere partijen, ging de zetel dus naar het CDA en niet naar D66.
                   </p>
                 </div>
               </div>
