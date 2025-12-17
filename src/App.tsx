@@ -90,7 +90,7 @@ export default function App() {
 
       <footer className="bg-white border-t border-gray-200 mt-16">
         <div className="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600">
-          <p>Dit educatieve project over Nederlandse verkiezingen is tot stand gekomen uit een samenwerking tussen studenten van de Science Communication in Society Master Eszter Nagy, Floris Löffler, Igor van der Meulen, Lucy van Staalduine, en Teun Grimbergen, onder supervisie van Ionica Smeets, en Platform Wiskunde Nederland (Nicos Starreveld)</p>
+          <p>Dit educatieve project over Nederlandse verkiezingen is tot stand gekomen in samenwerking met studenten van de master <i>Science Communication in Society</i> (Eszter Nagy, Floris Löffler, Igor van der Meulen, Lucy van Staalduine en Teun Grimbergen, onder supervisie van Ionica Smeets) en Platform Wiskunde Nederland (Nicos Starreveld).</p>
         </div>
       </footer>
     </div>
