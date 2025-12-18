@@ -33,7 +33,7 @@ export function AboutSeatDistribution() {
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/7bNKPIRPaQA"
+            src="https://www.youtube.com/embed/EvyrDy8Gwjg"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
